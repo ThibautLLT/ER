@@ -1,0 +1,33 @@
+23/01/2021 10:24:45 Sauvegarde...
+23/01/2021 10:24:46 System.IO.FileNotFoundException: Impossible de trouver le fichier 'E:\Sauvegarde\bin\Debug\acquisition.xlsm'.
+Nom de fichier : 'E:\Sauvegarde\bin\Debug\acquisition.xlsm'
+   à Microsoft.VisualBasic.FileIO.FileSystem.DeleteFileInternal(String file, UIOptionInternal showUI, RecycleOption recycle, UICancelOption onUserCancel)
+   à Microsoft.VisualBasic.MyServices.FileSystemProxy.DeleteFile(String file)
+   à SerialCom.com.Sauvegarde(Object name, Object folder) dans E:\Sauvegarde\com.vb:ligne 210
+23/01/2021 10:26:20 Fermeture du processus EXCEL
+23/01/2021 10:26:20 Connection au port série
+23/01/2021 10:26:20 Lancement d'excel
+23/01/2021 10:26:21 System.IO.FileNotFoundException: Impossible de trouver le fichier 'E:\Sauvegarde\bin\Debug\acquisition.xlsm'.
+Nom de fichier : 'E:\Sauvegarde\bin\Debug\acquisition.xlsm'
+   à Microsoft.VisualBasic.FileIO.FileSystem.DeleteFileInternal(String file, UIOptionInternal showUI, RecycleOption recycle, UICancelOption onUserCancel)
+   à Microsoft.VisualBasic.MyServices.FileSystemProxy.DeleteFile(String file)
+   à SerialCom.com.Form1_Load(Object sender, EventArgs e) dans E:\Sauvegarde\com.vb:ligne 70
+23/01/2021 10:26:21 Programme lancé
+23/01/2021 10:26:29 Fermeture du processus EXCEL
+23/01/2021 10:26:29 Connection au port série
+23/01/2021 10:26:29 Lancement d'excel
+23/01/2021 10:26:30 System.IO.FileNotFoundException: Impossible de trouver le fichier 'E:\Sauvegarde\bin\Debug\acquisition.xlsm'.
+Nom de fichier : 'E:\Sauvegarde\bin\Debug\acquisition.xlsm'
+   à Microsoft.VisualBasic.FileIO.FileSystem.DeleteFileInternal(String file, UIOptionInternal showUI, RecycleOption recycle, UICancelOption onUserCancel)
+   à Microsoft.VisualBasic.MyServices.FileSystemProxy.DeleteFile(String file)
+   à SerialCom.com.Form1_Load(Object sender, EventArgs e) dans E:\Sauvegarde\com.vb:ligne 70
+23/01/2021 10:26:30 Programme lancé
+23/01/2021 10:27:31 Fermeture du processus EXCEL
+23/01/2021 10:27:31 Connection au port série
+23/01/2021 10:27:31 Lancement d'excel
+23/01/2021 10:27:32 System.IO.FileNotFoundException: Impossible de trouver le fichier 'E:\Sauvegarde\bin\Debug\acquisition.xlsm'.
+Nom de fichier : 'E:\Sauvegarde\bin\Debug\acquisition.xlsm'
+   à Microsoft.VisualBasic.FileIO.FileSystem.DeleteFileInternal(String file, UIOptionInternal showUI, RecycleOption recycle, UICancelOption onUserCancel)
+   à Microsoft.VisualBasic.MyServices.FileSystemProxy.DeleteFile(String file)
+   à SerialCom.com.Form1_Load(Object sender, EventArgs e) dans E:\Sauvegarde\com.vb:ligne 70
+23/01/2021 10:27:32 Programme lancé

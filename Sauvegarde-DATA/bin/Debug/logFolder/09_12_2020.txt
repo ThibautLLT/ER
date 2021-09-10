@@ -1,0 +1,172 @@
+09/12/2020 11:31:42 Fermeture du processus EXCEL
+09/12/2020 11:31:43 Connection au port série
+09/12/2020 11:31:43 System.ArgumentOutOfRangeException: InvalidArgument=La valeur '-1' n'est pas valide pour 'index'.
+Nom du paramètre : index
+   à System.Windows.Forms.ComboBox.ObjectCollection.get_Item(Int32 index)
+   à SerialCom.com.Form1_Load(Object sender, EventArgs e) dans D:\Sauvegarde\com.vb:ligne 50
+09/12/2020 11:31:43 Lancement d'excel
+09/12/2020 11:31:44 Programme lancé
+09/12/2020 11:37:57 Fermeture du processus EXCEL
+09/12/2020 11:37:57 Connection au port série
+09/12/2020 11:37:57 Lancement d'excel
+09/12/2020 11:37:59 Programme lancé
+09/12/2020 11:44:54 Fermeture du processus EXCEL
+09/12/2020 11:44:55 Connection au port série
+09/12/2020 11:44:55 Lancement d'excel
+09/12/2020 11:44:56 Programme lancé
+09/12/2020 12:09:35 Fermeture du processus EXCEL
+09/12/2020 12:09:35 Connection au port série
+09/12/2020 12:09:35 Lancement d'excel
+09/12/2020 12:09:37 Programme lancé
+09/12/2020 12:09:55 Bouton sauvegarde appuyé
+09/12/2020 12:09:55 Sauvegarde...
+09/12/2020 12:09:55 fichier non accessible
+09/12/2020 12:10:04 Bouton sauvegarde appuyé
+09/12/2020 12:10:04 Sauvegarde...
+09/12/2020 12:10:04 fichier non accessible
+09/12/2020 12:10:26 Bouton sauvegarde appuyé
+09/12/2020 12:10:26 Sauvegarde...
+09/12/2020 12:10:26 fichier non accessible
+09/12/2020 12:10:30 Acquisition lancée
+09/12/2020 12:10:31 Bouton sauvegarde appuyé
+09/12/2020 12:10:31 Sauvegarde...
+09/12/2020 12:10:31 fichier non accessible
+09/12/2020 12:10:50 Bouton sauvegarde appuyé
+09/12/2020 12:10:50 Sauvegarde...
+09/12/2020 12:10:50 fichier non accessible
+09/12/2020 12:11:31 Fermeture du processus EXCEL
+09/12/2020 12:11:31 Connection au port série
+09/12/2020 12:11:31 Lancement d'excel
+09/12/2020 12:11:32 Programme lancé
+09/12/2020 12:11:43 Bouton sauvegarde appuyé
+09/12/2020 12:11:43 Sauvegarde...
+09/12/2020 12:11:43 fichier non accessible
+09/12/2020 12:11:50 Bouton sauvegarde appuyé
+09/12/2020 12:11:51 Sauvegarde...
+09/12/2020 12:11:51 fichier non accessible
+09/12/2020 12:11:55 Bouton sauvegarde appuyé
+09/12/2020 12:11:55 Sauvegarde...
+09/12/2020 12:11:55 fichier non accessible
+09/12/2020 12:13:24 Fermeture du processus EXCEL
+09/12/2020 12:13:24 Connection au port série
+09/12/2020 12:13:24 Lancement d'excel
+09/12/2020 12:13:26 Programme lancé
+09/12/2020 12:13:33 Bouton sauvegarde appuyé
+09/12/2020 12:13:33 Sauvegarde...
+09/12/2020 12:13:33 dossier non accessible
+09/12/2020 12:13:38 Bouton sauvegarde appuyé
+09/12/2020 12:13:38 Sauvegarde...
+09/12/2020 12:13:38 dossier non accessible
+09/12/2020 12:15:15 Fermeture du processus EXCEL
+09/12/2020 12:15:15 Connection au port série
+09/12/2020 12:15:15 Lancement d'excel
+09/12/2020 12:15:17 Programme lancé
+09/12/2020 12:15:24 Bouton sauvegarde appuyé
+09/12/2020 12:15:24 Sauvegarde...
+09/12/2020 12:15:24 dossier non accessible
+09/12/2020 12:16:00 Fermeture du processus EXCEL
+09/12/2020 12:16:00 Connection au port série
+09/12/2020 12:16:00 Lancement d'excel
+09/12/2020 12:16:02 Programme lancé
+09/12/2020 12:16:45 Bouton sauvegarde appuyé
+09/12/2020 12:16:45 Sauvegarde...
+09/12/2020 12:16:45 dossier non accessible
+09/12/2020 12:17:07 Bouton sauvegarde appuyé
+09/12/2020 12:17:07 Sauvegarde...
+09/12/2020 12:17:07 dossier non accessible
+09/12/2020 12:17:13 Bouton sauvegarde appuyé
+09/12/2020 12:17:13 Sauvegarde...
+09/12/2020 12:17:13 dossier non accessible
+09/12/2020 12:18:33 Fermeture du processus EXCEL
+09/12/2020 12:18:33 Connection au port série
+09/12/2020 12:18:33 Lancement d'excel
+09/12/2020 12:18:35 Programme lancé
+09/12/2020 12:18:55 Bouton sauvegarde appuyé
+09/12/2020 12:18:55 Sauvegarde...
+09/12/2020 12:18:55 dossier non accessible
+09/12/2020 12:19:04 Bouton sauvegarde appuyé
+09/12/2020 12:19:04 Sauvegarde...
+09/12/2020 12:19:04 dossier non accessible
+09/12/2020 12:21:33 Fermeture du processus EXCEL
+09/12/2020 12:21:33 Connection au port série
+09/12/2020 12:21:33 Lancement d'excel
+09/12/2020 12:21:36 Programme lancé
+09/12/2020 12:21:45 Bouton sauvegarde appuyé
+09/12/2020 12:21:45 Sauvegarde...
+09/12/2020 12:21:45 dossier non accessible
+09/12/2020 12:21:54 Acquisition lancée
+09/12/2020 12:21:55 Acquisition lancée
+09/12/2020 12:21:55 Acquisition lancée
+09/12/2020 12:25:40 Fermeture du processus EXCEL
+09/12/2020 12:25:40 Connection au port série
+09/12/2020 12:25:40 Lancement d'excel
+09/12/2020 12:25:42 Programme lancé
+09/12/2020 12:25:49 Bouton sauvegarde appuyé
+09/12/2020 12:25:49 Sauvegarde...
+09/12/2020 12:25:49 dossier non accessible
+09/12/2020 12:26:45 Fermeture du processus EXCEL
+09/12/2020 12:26:45 Connection au port série
+09/12/2020 12:26:45 Lancement d'excel
+09/12/2020 12:26:46 Programme lancé
+09/12/2020 12:26:52 Bouton sauvegarde appuyé
+09/12/2020 12:26:52 Sauvegarde...
+09/12/2020 12:26:52 dossier non accessible
+09/12/2020 12:29:28 Fermeture du processus EXCEL
+09/12/2020 12:29:28 Connection au port série
+09/12/2020 12:29:28 Lancement d'excel
+09/12/2020 12:29:30 Programme lancé
+09/12/2020 12:29:33 Bouton sauvegarde appuyé
+09/12/2020 12:29:33 Sauvegarde...
+09/12/2020 12:29:33 dossier non accessible
+09/12/2020 12:29:41 Bouton sauvegarde appuyé
+09/12/2020 12:29:41 Sauvegarde...
+09/12/2020 12:29:41 dossier non accessible
+09/12/2020 12:30:39 Bouton sauvegarde appuyé
+09/12/2020 12:30:39 Sauvegarde...
+09/12/2020 12:30:39 dossier non accessible
+09/12/2020 12:30:42 Bouton sauvegarde appuyé
+09/12/2020 12:30:42 Sauvegarde...
+09/12/2020 12:30:42 dossier non accessible
+09/12/2020 12:31:57 Bouton sauvegarde appuyé
+09/12/2020 12:31:57 Sauvegarde...
+09/12/2020 12:32:37 dossier non accessible
+09/12/2020 12:32:52 Bouton sauvegarde appuyé
+09/12/2020 12:34:59 Sauvegarde...
+09/12/2020 12:35:05 dossier non accessible
+09/12/2020 12:38:22 Fermeture du processus EXCEL
+09/12/2020 12:38:22 Connection au port série
+09/12/2020 12:38:22 Lancement d'excel
+09/12/2020 12:38:24 Programme lancé
+09/12/2020 12:38:34 Bouton sauvegarde appuyé
+09/12/2020 12:39:27 Fermeture du processus EXCEL
+09/12/2020 12:39:27 Connection au port série
+09/12/2020 12:39:27 Lancement d'excel
+09/12/2020 12:39:29 Programme lancé
+09/12/2020 12:39:44 Bouton sauvegarde appuyé
+09/12/2020 12:52:09 Fermeture du processus EXCEL
+09/12/2020 12:52:09 Connection au port série
+09/12/2020 12:52:09 Lancement d'excel
+09/12/2020 12:52:12 Programme lancé
+09/12/2020 12:52:55 Bouton sauvegarde appuyé
+09/12/2020 12:52:55 Sauvegarde...
+09/12/2020 12:54:40 Fermeture du processus EXCEL
+09/12/2020 12:54:40 Connection au port série
+09/12/2020 12:54:40 Lancement d'excel
+09/12/2020 12:54:42 Programme lancé
+09/12/2020 12:54:45 Acquisition lancée
+09/12/2020 12:54:46 Acquisition lancée
+09/12/2020 12:54:47 Acquisition lancée
+09/12/2020 12:54:47 Acquisition lancée
+09/12/2020 12:54:48 Acquisition lancée
+09/12/2020 12:54:48 Acquisition lancée
+09/12/2020 12:54:55 Acquisition lancée
+09/12/2020 12:55:25 Bouton sauvegarde appuyé
+09/12/2020 12:55:25 Sauvegarde...
+09/12/2020 12:55:29 Acquisition lancée
+09/12/2020 12:55:30 Acquisition lancée
+09/12/2020 12:55:30 Acquisition lancée
+09/12/2020 12:55:31 Acquisition lancée
+09/12/2020 12:55:31 Bouton sauvegarde appuyé
+09/12/2020 12:55:31 Sauvegarde...
+09/12/2020 12:55:34 Bouton sauvegarde appuyé
+09/12/2020 12:55:34 Sauvegarde...

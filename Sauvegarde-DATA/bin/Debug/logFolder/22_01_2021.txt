@@ -1,0 +1,13 @@
+22/01/2021 10:24:17 Sauvegarde...
+22/01/2021 10:24:19 System.Runtime.InteropServices.COMException (0x800706BE): Échec de l’appel de procédure distante. (Exception de HRESULT : 0x800706BE)
+   à Microsoft.Office.Interop.Excel._Workbook.SaveAs(Object Filename, Object FileFormat, Object Password, Object WriteResPassword, Object ReadOnlyRecommended, Object CreateBackup, XlSaveAsAccessMode AccessMode, Object ConflictResolution, Object AddToMru, Object TextCodepage, Object TextVisualLayout, Object Local)
+   à SerialCom.com.Sauvegarde(Object name, Object folder) dans E:\Sauvegarde\com.vb:ligne 216
+22/01/2021 10:24:37 Fermeture du processus EXCEL
+22/01/2021 10:24:37 Connection au port série
+22/01/2021 10:24:37 Lancement d'excel
+22/01/2021 10:24:38 System.IO.FileNotFoundException: Impossible de trouver le fichier 'E:\Sauvegarde\bin\Debug\acquisition.xlsm'.
+Nom de fichier : 'E:\Sauvegarde\bin\Debug\acquisition.xlsm'
+   à Microsoft.VisualBasic.FileIO.FileSystem.DeleteFileInternal(String file, UIOptionInternal showUI, RecycleOption recycle, UICancelOption onUserCancel)
+   à Microsoft.VisualBasic.MyServices.FileSystemProxy.DeleteFile(String file)
+   à SerialCom.com.Form1_Load(Object sender, EventArgs e) dans E:\Sauvegarde\com.vb:ligne 70
+22/01/2021 10:24:38 Programme lancé

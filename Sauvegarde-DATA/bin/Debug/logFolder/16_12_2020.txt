@@ -1,0 +1,36 @@
+16/12/2020 09:27:39 Fermeture du processus EXCEL
+16/12/2020 09:27:39 Connection au port série
+16/12/2020 09:27:39 Lancement d'excel
+16/12/2020 09:27:41 Programme lancé
+16/12/2020 09:33:59 Bouton sauvegarde appuyé
+16/12/2020 09:33:59 Sauvegarde...
+16/12/2020 09:34:04 Bouton sauvegarde appuyé
+16/12/2020 09:34:05 Sauvegarde...
+16/12/2020 09:34:08 Acquisition lancée
+16/12/2020 09:34:16 Acquisition lancée
+16/12/2020 09:34:40 Commande envoyé dans le teminale : M
+16/12/2020 11:42:20 Fermeture du processus EXCEL
+16/12/2020 11:42:21 Connection au port série
+16/12/2020 11:42:21 Lancement d'excel
+16/12/2020 11:42:22 Programme lancé
+16/12/2020 11:42:25 Acquisition lancée
+16/12/2020 11:42:30 Acquisition lancée
+16/12/2020 11:42:39 Acquisition lancée
+16/12/2020 12:19:43 Fermeture du processus EXCEL
+16/12/2020 12:19:44 Connection au port série
+16/12/2020 12:19:44 Lancement d'excel
+16/12/2020 12:19:45 Programme lancé
+16/12/2020 12:19:56 Commande envoyé dans le teminale : VERIF
+16/12/2020 12:20:18 Commande envoyé dans le teminale : VERIF
+16/12/2020 12:20:33 Commande envoyé dans le teminale : VERIF
+16/12/2020 12:20:39 Commande envoyé dans le teminale : VERIF
+16/12/2020 12:20:51 Commande envoyé dans le teminale : VERIF
+16/12/2020 12:20:56 Commande envoyé dans le teminale : N
+16/12/2020 12:20:59 Commande envoyé dans le teminale : M
+16/12/2020 12:28:44 Fermeture du processus EXCEL
+16/12/2020 12:28:44 Connection au port série
+16/12/2020 12:28:44 Lancement d'excel
+16/12/2020 12:28:46 Programme lancé
+16/12/2020 12:33:28 Commande envoyé dans le teminale : N
+16/12/2020 12:35:16 Commande envoyé dans le teminale : N
+16/12/2020 12:39:38 Commande envoyé dans le teminale : N

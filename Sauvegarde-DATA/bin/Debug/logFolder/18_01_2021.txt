@@ -1,0 +1,56 @@
+18/01/2021 09:13:19 Fermeture du processus EXCEL
+18/01/2021 09:13:19 Connection au port série
+18/01/2021 09:13:19 Lancement d'excel
+18/01/2021 09:13:22 Programme lancé
+18/01/2021 09:13:42 Acquisition lancée
+18/01/2021 09:19:39 Fermeture du processus EXCEL
+18/01/2021 09:19:39 Connection au port série
+18/01/2021 09:19:39 Lancement d'excel
+18/01/2021 09:19:41 Programme lancé
+18/01/2021 09:19:45 Acquisition lancée
+18/01/2021 09:19:48 Acquisition lancée
+18/01/2021 09:19:58 Acquisition lancée
+18/01/2021 09:23:17 Fermeture du processus EXCEL
+18/01/2021 09:23:17 Connection au port série
+18/01/2021 09:23:17 Lancement d'excel
+18/01/2021 09:23:19 Programme lancé
+18/01/2021 09:23:57 Bouton sauvegarde appuyé
+18/01/2021 09:23:57 Sauvegarde...
+18/01/2021 09:24:32 Fermeture du processus EXCEL
+18/01/2021 09:24:33 Connection au port série
+18/01/2021 09:24:33 Lancement d'excel
+18/01/2021 09:24:34 Programme lancé
+18/01/2021 09:24:52 Acquisition lancée
+18/01/2021 09:24:53 Acquisition lancée
+18/01/2021 09:26:00 Fermeture du processus EXCEL
+18/01/2021 09:26:00 Connection au port série
+18/01/2021 09:26:00 Lancement d'excel
+18/01/2021 09:26:02 Programme lancé
+18/01/2021 09:29:20 Bouton sauvegarde appuyé
+18/01/2021 09:29:20 Sauvegarde...
+18/01/2021 09:29:24 Bouton sauvegarde appuyé
+18/01/2021 09:29:24 Sauvegarde...
+18/01/2021 09:30:26 Fermeture du processus EXCEL
+18/01/2021 09:30:26 Connection au port série
+18/01/2021 09:30:26 Lancement d'excel
+18/01/2021 09:30:28 Programme lancé
+18/01/2021 09:30:41 Acquisition lancée
+18/01/2021 09:30:43 Acquisition lancée
+18/01/2021 09:30:44 Acquisition lancée
+18/01/2021 09:30:45 Acquisition lancée
+18/01/2021 09:30:46 Acquisition lancée
+18/01/2021 09:30:47 Acquisition lancée
+18/01/2021 09:30:47 Acquisition lancée
+18/01/2021 09:30:47 Acquisition lancée
+18/01/2021 09:30:54 Acquisition lancée
+18/01/2021 09:30:57 Acquisition lancée
+18/01/2021 09:30:59 Acquisition lancée
+18/01/2021 09:31:01 Acquisition lancée
+18/01/2021 09:41:55 Bouton sauvegarde appuyé
+18/01/2021 09:41:55 Sauvegarde...
+18/01/2021 09:42:03 Bouton sauvegarde appuyé
+18/01/2021 09:42:03 Sauvegarde...
+18/01/2021 10:17:24 Fermeture du processus EXCEL
+18/01/2021 10:17:24 Connection au port série
+18/01/2021 10:17:24 Lancement d'excel
+18/01/2021 10:17:26 Programme lancé

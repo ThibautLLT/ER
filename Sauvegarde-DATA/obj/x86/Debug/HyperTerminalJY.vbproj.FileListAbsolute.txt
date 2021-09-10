@@ -1,0 +1,163 @@
+C:\Users\Jean yves\Google Drive\VisualStudioApp\HyperterminalJY\bin\Debug\SerialCom.exe.config
+C:\Users\Jean yves\Google Drive\VisualStudioApp\HyperterminalJY\bin\Debug\SerialCom.exe
+C:\Users\Jean yves\Google Drive\VisualStudioApp\HyperterminalJY\bin\Debug\SerialCom.pdb
+C:\Users\Jean yves\Google Drive\VisualStudioApp\HyperterminalJY\bin\Debug\SerialCom.xml
+C:\Users\Jean yves\Google Drive\VisualStudioApp\HyperterminalJY\obj\x86\Debug\HyperTerminalJY.vbprojAssemblyReference.cache
+C:\Users\Jean yves\Google Drive\VisualStudioApp\HyperterminalJY\obj\x86\Debug\SerialCom.com.resources
+C:\Users\Jean yves\Google Drive\VisualStudioApp\HyperterminalJY\obj\x86\Debug\SerialCom.Resources.resources
+C:\Users\Jean yves\Google Drive\VisualStudioApp\HyperterminalJY\obj\x86\Debug\HyperTerminalJY.vbproj.GenerateResource.cache
+C:\Users\Jean yves\Google Drive\VisualStudioApp\HyperterminalJY\obj\x86\Debug\HyperTerminalJY.vbproj.CoreCompileInputs.cache
+C:\Users\Jean yves\Google Drive\VisualStudioApp\HyperterminalJY\obj\x86\Debug\SerialCom.exe
+C:\Users\Jean yves\Google Drive\VisualStudioApp\HyperterminalJY\obj\x86\Debug\SerialCom.xml
+C:\Users\Jean yves\Google Drive\VisualStudioApp\HyperterminalJY\obj\x86\Debug\SerialCom.pdb
+C:\Users\jeany\Google Drive\VisualStudioApp\HyperterminalJY\bin\Debug\SerialCom.exe.config
+C:\Users\jeany\Google Drive\VisualStudioApp\HyperterminalJY\bin\Debug\SerialCom.exe
+C:\Users\jeany\Google Drive\VisualStudioApp\HyperterminalJY\bin\Debug\SerialCom.pdb
+C:\Users\jeany\Google Drive\VisualStudioApp\HyperterminalJY\bin\Debug\SerialCom.xml
+C:\Users\jeany\Google Drive\VisualStudioApp\HyperterminalJY\obj\x86\Debug\HyperTerminalJY.vbprojAssemblyReference.cache
+C:\Users\jeany\Google Drive\VisualStudioApp\HyperterminalJY\obj\x86\Debug\SerialCom.com.resources
+C:\Users\jeany\Google Drive\VisualStudioApp\HyperterminalJY\obj\x86\Debug\SerialCom.Resources.resources
+C:\Users\jeany\Google Drive\VisualStudioApp\HyperterminalJY\obj\x86\Debug\HyperTerminalJY.vbproj.GenerateResource.cache
+C:\Users\jeany\Google Drive\VisualStudioApp\HyperterminalJY\obj\x86\Debug\HyperTerminalJY.vbproj.CoreCompileInputs.cache
+C:\Users\jeany\Google Drive\VisualStudioApp\HyperterminalJY\obj\x86\Debug\SerialCom.exe
+C:\Users\jeany\Google Drive\VisualStudioApp\HyperterminalJY\obj\x86\Debug\SerialCom.xml
+C:\Users\jeany\Google Drive\VisualStudioApp\HyperterminalJY\obj\x86\Debug\SerialCom.pdb
+C:\Users\jeany\Google Drive\VisualStudioApp\transfertExcel\bin\Debug\SerialCom.exe.config
+C:\Users\jeany\Google Drive\VisualStudioApp\transfertExcel\bin\Debug\SerialCom.exe
+C:\Users\jeany\Google Drive\VisualStudioApp\transfertExcel\bin\Debug\SerialCom.pdb
+C:\Users\jeany\Google Drive\VisualStudioApp\transfertExcel\bin\Debug\SerialCom.xml
+C:\Users\jeany\Google Drive\VisualStudioApp\transfertExcel\obj\x86\Debug\HyperTerminalJY.vbprojAssemblyReference.cache
+C:\Users\jeany\Google Drive\VisualStudioApp\transfertExcel\obj\x86\Debug\SerialCom.com.resources
+C:\Users\jeany\Google Drive\VisualStudioApp\transfertExcel\obj\x86\Debug\SerialCom.Resources.resources
+C:\Users\jeany\Google Drive\VisualStudioApp\transfertExcel\obj\x86\Debug\HyperTerminalJY.vbproj.GenerateResource.cache
+C:\Users\jeany\Google Drive\VisualStudioApp\transfertExcel\obj\x86\Debug\HyperTerminalJY.vbproj.CoreCompileInputs.cache
+C:\Users\jeany\Google Drive\VisualStudioApp\transfertExcel\obj\x86\Debug\SerialCom.exe
+C:\Users\jeany\Google Drive\VisualStudioApp\transfertExcel\obj\x86\Debug\SerialCom.xml
+C:\Users\jeany\Google Drive\VisualStudioApp\transfertExcel\obj\x86\Debug\SerialCom.pdb
+C:\Users\Jean yves\Google Drive\VisualStudioApp\transfertExcel\bin\Debug\SerialCom.exe.config
+C:\Users\Jean yves\Google Drive\VisualStudioApp\transfertExcel\bin\Debug\SerialCom.exe
+C:\Users\Jean yves\Google Drive\VisualStudioApp\transfertExcel\bin\Debug\SerialCom.pdb
+C:\Users\Jean yves\Google Drive\VisualStudioApp\transfertExcel\bin\Debug\SerialCom.xml
+C:\Users\Jean yves\Google Drive\VisualStudioApp\transfertExcel\obj\x86\Debug\HyperTerminalJY.vbprojAssemblyReference.cache
+C:\Users\Jean yves\Google Drive\VisualStudioApp\transfertExcel\obj\x86\Debug\SerialCom.com.resources
+C:\Users\Jean yves\Google Drive\VisualStudioApp\transfertExcel\obj\x86\Debug\SerialCom.Resources.resources
+C:\Users\Jean yves\Google Drive\VisualStudioApp\transfertExcel\obj\x86\Debug\HyperTerminalJY.vbproj.GenerateResource.cache
+C:\Users\Jean yves\Google Drive\VisualStudioApp\transfertExcel\obj\x86\Debug\HyperTerminalJY.vbproj.CoreCompileInputs.cache
+C:\Users\Jean yves\Google Drive\VisualStudioApp\transfertExcel\obj\x86\Debug\SerialCom.exe
+C:\Users\Jean yves\Google Drive\VisualStudioApp\transfertExcel\obj\x86\Debug\SerialCom.xml
+C:\Users\Jean yves\Google Drive\VisualStudioApp\transfertExcel\obj\x86\Debug\SerialCom.pdb
+C:\Users\Jean yves\Google Drive\VisualStudioApp\transfertExcel\obj\x86\Debug\HyperTerminalJY.vbproj.ResolveComReference.cache
+C:\Users\jeany\Google Drive\VisualStudioApp\transfertExcel\obj\x86\Debug\HyperTerminalJY.vbproj.ResolveComReference.cache
+C:\Users\vkongphet\Documents\HARD WORKING\PhD reseaches 2018_Geeps\My reseached 2018\Experimentales PV\Data Acquisition PV\transfertExcel\bin\Debug\SerialCom.exe.config
+C:\Users\vkongphet\Documents\HARD WORKING\PhD reseaches 2018_Geeps\My reseached 2018\Experimentales PV\Data Acquisition PV\transfertExcel\bin\Debug\SerialCom.exe
+C:\Users\vkongphet\Documents\HARD WORKING\PhD reseaches 2018_Geeps\My reseached 2018\Experimentales PV\Data Acquisition PV\transfertExcel\bin\Debug\SerialCom.pdb
+C:\Users\vkongphet\Documents\HARD WORKING\PhD reseaches 2018_Geeps\My reseached 2018\Experimentales PV\Data Acquisition PV\transfertExcel\bin\Debug\SerialCom.xml
+C:\Users\vkongphet\Documents\HARD WORKING\PhD reseaches 2018_Geeps\My reseached 2018\Experimentales PV\Data Acquisition PV\transfertExcel\obj\x86\Debug\HyperTerminalJY.vbprojAssemblyReference.cache
+C:\Users\vkongphet\Documents\HARD WORKING\PhD reseaches 2018_Geeps\My reseached 2018\Experimentales PV\Data Acquisition PV\transfertExcel\obj\x86\Debug\HyperTerminalJY.vbproj.ResolveComReference.cache
+C:\Users\vkongphet\Documents\HARD WORKING\PhD reseaches 2018_Geeps\My reseached 2018\Experimentales PV\Data Acquisition PV\transfertExcel\obj\x86\Debug\SerialCom.com.resources
+C:\Users\vkongphet\Documents\HARD WORKING\PhD reseaches 2018_Geeps\My reseached 2018\Experimentales PV\Data Acquisition PV\transfertExcel\obj\x86\Debug\SerialCom.Resources.resources
+C:\Users\vkongphet\Documents\HARD WORKING\PhD reseaches 2018_Geeps\My reseached 2018\Experimentales PV\Data Acquisition PV\transfertExcel\obj\x86\Debug\HyperTerminalJY.vbproj.GenerateResource.cache
+C:\Users\vkongphet\Documents\HARD WORKING\PhD reseaches 2018_Geeps\My reseached 2018\Experimentales PV\Data Acquisition PV\transfertExcel\obj\x86\Debug\HyperTerminalJY.vbproj.CoreCompileInputs.cache
+C:\Users\vkongphet\Documents\HARD WORKING\PhD reseaches 2018_Geeps\My reseached 2018\Experimentales PV\Data Acquisition PV\transfertExcel\obj\x86\Debug\SerialCom.exe
+C:\Users\vkongphet\Documents\HARD WORKING\PhD reseaches 2018_Geeps\My reseached 2018\Experimentales PV\Data Acquisition PV\transfertExcel\obj\x86\Debug\SerialCom.xml
+C:\Users\vkongphet\Documents\HARD WORKING\PhD reseaches 2018_Geeps\My reseached 2018\Experimentales PV\Data Acquisition PV\transfertExcel\obj\x86\Debug\SerialCom.pdb
+C:\Users\kongphet_vor\Google Drive\Data Acquisition_v2\transfertExcel\bin\Debug\SerialCom.exe.config
+C:\Users\kongphet_vor\Google Drive\Data Acquisition_v2\transfertExcel\bin\Debug\SerialCom.exe
+C:\Users\kongphet_vor\Google Drive\Data Acquisition_v2\transfertExcel\bin\Debug\SerialCom.pdb
+C:\Users\kongphet_vor\Google Drive\Data Acquisition_v2\transfertExcel\bin\Debug\SerialCom.xml
+C:\Users\kongphet_vor\Google Drive\Data Acquisition_v2\transfertExcel\obj\x86\Debug\HyperTerminalJY.vbprojAssemblyReference.cache
+C:\Users\kongphet_vor\Google Drive\Data Acquisition_v2\transfertExcel\obj\x86\Debug\HyperTerminalJY.vbproj.ResolveComReference.cache
+C:\Users\kongphet_vor\Google Drive\Data Acquisition_v2\transfertExcel\obj\x86\Debug\SerialCom.com.resources
+C:\Users\kongphet_vor\Google Drive\Data Acquisition_v2\transfertExcel\obj\x86\Debug\SerialCom.Resources.resources
+C:\Users\kongphet_vor\Google Drive\Data Acquisition_v2\transfertExcel\obj\x86\Debug\HyperTerminalJY.vbproj.GenerateResource.cache
+C:\Users\kongphet_vor\Google Drive\Data Acquisition_v2\transfertExcel\obj\x86\Debug\HyperTerminalJY.vbproj.CoreCompileInputs.cache
+C:\Users\kongphet_vor\Google Drive\Data Acquisition_v2\transfertExcel\obj\x86\Debug\SerialCom.exe
+C:\Users\kongphet_vor\Google Drive\Data Acquisition_v2\transfertExcel\obj\x86\Debug\SerialCom.xml
+C:\Users\kongphet_vor\Google Drive\Data Acquisition_v2\transfertExcel\obj\x86\Debug\SerialCom.pdb
+C:\Data Acquisition_v2\transfertExcel\bin\Debug\SerialCom.exe.config
+C:\Data Acquisition_v2\transfertExcel\bin\Debug\SerialCom.exe
+C:\Data Acquisition_v2\transfertExcel\bin\Debug\SerialCom.pdb
+C:\Data Acquisition_v2\transfertExcel\bin\Debug\SerialCom.xml
+C:\Data Acquisition_v2\transfertExcel\obj\x86\Debug\HyperTerminalJY.vbprojAssemblyReference.cache
+C:\Data Acquisition_v2\transfertExcel\obj\x86\Debug\HyperTerminalJY.vbproj.ResolveComReference.cache
+C:\Data Acquisition_v2\transfertExcel\obj\x86\Debug\SerialCom.com.resources
+C:\Data Acquisition_v2\transfertExcel\obj\x86\Debug\SerialCom.Resources.resources
+C:\Data Acquisition_v2\transfertExcel\obj\x86\Debug\HyperTerminalJY.vbproj.GenerateResource.cache
+C:\Data Acquisition_v2\transfertExcel\obj\x86\Debug\HyperTerminalJY.vbproj.CoreCompileInputs.cache
+C:\Data Acquisition_v2\transfertExcel\obj\x86\Debug\SerialCom.exe
+C:\Data Acquisition_v2\transfertExcel\obj\x86\Debug\SerialCom.xml
+C:\Data Acquisition_v2\transfertExcel\obj\x86\Debug\SerialCom.pdb
+C:\Users\kongphet_vor\Desktop\Data Acquisition_v2\transfertExcel\bin\Debug\SerialCom.exe.config
+C:\Users\kongphet_vor\Desktop\Data Acquisition_v2\transfertExcel\bin\Debug\SerialCom.exe
+C:\Users\kongphet_vor\Desktop\Data Acquisition_v2\transfertExcel\bin\Debug\SerialCom.pdb
+C:\Users\kongphet_vor\Desktop\Data Acquisition_v2\transfertExcel\bin\Debug\SerialCom.xml
+C:\Users\kongphet_vor\Desktop\Data Acquisition_v2\transfertExcel\obj\x86\Debug\HyperTerminalJY.vbprojAssemblyReference.cache
+C:\Users\kongphet_vor\Desktop\Data Acquisition_v2\transfertExcel\obj\x86\Debug\HyperTerminalJY.vbproj.ResolveComReference.cache
+C:\Users\kongphet_vor\Desktop\Data Acquisition_v2\transfertExcel\obj\x86\Debug\SerialCom.com.resources
+C:\Users\kongphet_vor\Desktop\Data Acquisition_v2\transfertExcel\obj\x86\Debug\SerialCom.Resources.resources
+C:\Users\kongphet_vor\Desktop\Data Acquisition_v2\transfertExcel\obj\x86\Debug\HyperTerminalJY.vbproj.GenerateResource.cache
+C:\Users\kongphet_vor\Desktop\Data Acquisition_v2\transfertExcel\obj\x86\Debug\HyperTerminalJY.vbproj.CoreCompileInputs.cache
+C:\Users\kongphet_vor\Desktop\Data Acquisition_v2\transfertExcel\obj\x86\Debug\SerialCom.exe
+C:\Users\kongphet_vor\Desktop\Data Acquisition_v2\transfertExcel\obj\x86\Debug\SerialCom.xml
+C:\Users\kongphet_vor\Desktop\Data Acquisition_v2\transfertExcel\obj\x86\Debug\SerialCom.pdb
+C:\Users\vkongphet\Documents\HARD WORKING\PhD reseaches 2018_Geeps\My reseached 2018\Experimentales PV\Mis en oeuvre system PV module\sauvegarde auto\Sauvegarde\obj\x86\Debug\HyperTerminalJY.vbprojAssemblyReference.cache
+C:\Users\vkongphet\Documents\HARD WORKING\PhD reseaches 2018_Geeps\My reseached 2018\Experimentales PV\Mis en oeuvre system PV module\sauvegarde auto\Sauvegarde\obj\x86\Debug\HyperTerminalJY.vbproj.ResolveComReference.cache
+C:\Users\vkongphet\Documents\HARD WORKING\PhD reseaches 2018_Geeps\My reseached 2018\Experimentales PV\Mis en oeuvre system PV module\sauvegarde auto\Sauvegarde\obj\x86\Debug\SerialCom.com.resources
+C:\Users\vkongphet\Documents\HARD WORKING\PhD reseaches 2018_Geeps\My reseached 2018\Experimentales PV\Mis en oeuvre system PV module\sauvegarde auto\Sauvegarde\obj\x86\Debug\SerialCom.Resources.resources
+C:\Users\vkongphet\Documents\HARD WORKING\PhD reseaches 2018_Geeps\My reseached 2018\Experimentales PV\Mis en oeuvre system PV module\sauvegarde auto\Sauvegarde\obj\x86\Debug\HyperTerminalJY.vbproj.GenerateResource.cache
+C:\Users\vkongphet\Documents\HARD WORKING\PhD reseaches 2018_Geeps\My reseached 2018\Experimentales PV\Mis en oeuvre system PV module\sauvegarde auto\Sauvegarde\obj\x86\Debug\HyperTerminalJY.vbproj.CoreCompileInputs.cache
+C:\Users\vkongphet\Documents\HARD WORKING\PhD reseaches 2018_Geeps\My reseached 2018\Experimentales PV\Mis en oeuvre system PV module\sauvegarde auto\Sauvegarde\obj\x86\Debug\SerialCom.exe
+C:\Users\vkongphet\Documents\HARD WORKING\PhD reseaches 2018_Geeps\My reseached 2018\Experimentales PV\Mis en oeuvre system PV module\sauvegarde auto\Sauvegarde\obj\x86\Debug\SerialCom.xml
+C:\Users\vkongphet\Documents\HARD WORKING\PhD reseaches 2018_Geeps\My reseached 2018\Experimentales PV\Mis en oeuvre system PV module\sauvegarde auto\Sauvegarde\obj\x86\Debug\SerialCom.pdb
+C:\Users\vkongphet\Documents\HARD WORKING\PhD reseaches 2018_Geeps\My reseached 2018\Experimentales PV\Mis en oeuvre system PV module\sauvegarde auto\Sauvegarde\bin\Debug\SerialCom.exe.config
+C:\Users\vkongphet\Documents\HARD WORKING\PhD reseaches 2018_Geeps\My reseached 2018\Experimentales PV\Mis en oeuvre system PV module\sauvegarde auto\Sauvegarde\bin\Debug\SerialCom.exe
+C:\Users\vkongphet\Documents\HARD WORKING\PhD reseaches 2018_Geeps\My reseached 2018\Experimentales PV\Mis en oeuvre system PV module\sauvegarde auto\Sauvegarde\bin\Debug\SerialCom.pdb
+C:\Users\vkongphet\Documents\HARD WORKING\PhD reseaches 2018_Geeps\My reseached 2018\Experimentales PV\Mis en oeuvre system PV module\sauvegarde auto\Sauvegarde\bin\Debug\SerialCom.xml
+D:\Sauvegarde\bin\Debug\SerialCom.exe.config
+D:\Sauvegarde\bin\Debug\SerialCom.exe
+D:\Sauvegarde\bin\Debug\SerialCom.pdb
+D:\Sauvegarde\bin\Debug\SerialCom.xml
+D:\Sauvegarde\obj\x86\Debug\HyperTerminalJY.vbprojAssemblyReference.cache
+D:\Sauvegarde\obj\x86\Debug\HyperTerminalJY.vbproj.ResolveComReference.cache
+D:\Sauvegarde\obj\x86\Debug\SerialCom.com.resources
+D:\Sauvegarde\obj\x86\Debug\SerialCom.Resources.resources
+D:\Sauvegarde\obj\x86\Debug\HyperTerminalJY.vbproj.GenerateResource.cache
+D:\Sauvegarde\obj\x86\Debug\HyperTerminalJY.vbproj.CoreCompileInputs.cache
+D:\Sauvegarde\obj\x86\Debug\SerialCom.exe
+D:\Sauvegarde\obj\x86\Debug\SerialCom.xml
+D:\Sauvegarde\obj\x86\Debug\SerialCom.pdb
+D:\Sauvegarde\obj\x86\Debug\SerialCom.FormLog.resources
+D:\Sauvegarde\obj\x86\Debug\SerialCom.FormTerminale.resources
+D:\Sauvegarde\bin\Debug\img\icon.ico
+F:\Sauvegarde\bin\Debug\img\icon.ico
+F:\Sauvegarde\bin\Debug\SerialCom.exe.config
+F:\Sauvegarde\bin\Debug\SerialCom.exe
+F:\Sauvegarde\bin\Debug\SerialCom.pdb
+F:\Sauvegarde\bin\Debug\SerialCom.xml
+F:\Sauvegarde\obj\x86\Debug\HyperTerminalJY.vbprojAssemblyReference.cache
+F:\Sauvegarde\obj\x86\Debug\HyperTerminalJY.vbproj.ResolveComReference.cache
+F:\Sauvegarde\obj\x86\Debug\SerialCom.com.resources
+F:\Sauvegarde\obj\x86\Debug\SerialCom.FormLog.resources
+F:\Sauvegarde\obj\x86\Debug\SerialCom.FormTerminale.resources
+F:\Sauvegarde\obj\x86\Debug\SerialCom.Resources.resources
+F:\Sauvegarde\obj\x86\Debug\HyperTerminalJY.vbproj.GenerateResource.cache
+F:\Sauvegarde\obj\x86\Debug\HyperTerminalJY.vbproj.CoreCompileInputs.cache
+F:\Sauvegarde\obj\x86\Debug\SerialCom.exe
+F:\Sauvegarde\obj\x86\Debug\SerialCom.xml
+F:\Sauvegarde\obj\x86\Debug\SerialCom.pdb
+E:\Sauvegarde\bin\Debug\img\icon.ico
+E:\Sauvegarde\bin\Debug\SerialCom.exe.config
+E:\Sauvegarde\bin\Debug\SerialCom.exe
+E:\Sauvegarde\bin\Debug\SerialCom.pdb
+E:\Sauvegarde\bin\Debug\SerialCom.xml
+E:\Sauvegarde\obj\x86\Debug\HyperTerminalJY.vbprojAssemblyReference.cache
+E:\Sauvegarde\obj\x86\Debug\HyperTerminalJY.vbproj.ResolveComReference.cache
+E:\Sauvegarde\obj\x86\Debug\SerialCom.com.resources
+E:\Sauvegarde\obj\x86\Debug\SerialCom.FormLog.resources
+E:\Sauvegarde\obj\x86\Debug\SerialCom.FormTerminale.resources
+E:\Sauvegarde\obj\x86\Debug\SerialCom.Resources.resources
+E:\Sauvegarde\obj\x86\Debug\HyperTerminalJY.vbproj.GenerateResource.cache
+E:\Sauvegarde\obj\x86\Debug\HyperTerminalJY.vbproj.CoreCompileInputs.cache
+E:\Sauvegarde\obj\x86\Debug\SerialCom.exe
+E:\Sauvegarde\obj\x86\Debug\SerialCom.xml
+E:\Sauvegarde\obj\x86\Debug\SerialCom.pdb

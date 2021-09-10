@@ -1,0 +1,12 @@
+C:\Users\Jean yves\Google Drive\VisualStudioApp\transfertExcel\bin\Debug\SerialCom.exe.config
+C:\Users\Jean yves\Google Drive\VisualStudioApp\transfertExcel\bin\Debug\SerialCom.exe
+C:\Users\Jean yves\Google Drive\VisualStudioApp\transfertExcel\bin\Debug\SerialCom.pdb
+C:\Users\Jean yves\Google Drive\VisualStudioApp\transfertExcel\bin\Debug\SerialCom.xml
+C:\Users\Jean yves\Google Drive\VisualStudioApp\transfertExcel\obj\Debug\HyperTerminalJY.vbproj.ResolveComReference.cache
+C:\Users\Jean yves\Google Drive\VisualStudioApp\transfertExcel\obj\Debug\SerialCom.com.resources
+C:\Users\Jean yves\Google Drive\VisualStudioApp\transfertExcel\obj\Debug\SerialCom.Resources.resources
+C:\Users\Jean yves\Google Drive\VisualStudioApp\transfertExcel\obj\Debug\HyperTerminalJY.vbproj.GenerateResource.cache
+C:\Users\Jean yves\Google Drive\VisualStudioApp\transfertExcel\obj\Debug\HyperTerminalJY.vbproj.CoreCompileInputs.cache
+C:\Users\Jean yves\Google Drive\VisualStudioApp\transfertExcel\obj\Debug\SerialCom.exe
+C:\Users\Jean yves\Google Drive\VisualStudioApp\transfertExcel\obj\Debug\SerialCom.xml
+C:\Users\Jean yves\Google Drive\VisualStudioApp\transfertExcel\obj\Debug\SerialCom.pdb

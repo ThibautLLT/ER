@@ -1,0 +1,27 @@
+28/01/2021 11:09:11 Sauvegarde...
+28/01/2021 11:09:13 System.Runtime.InteropServices.COMException (0x800706BE): Échec de l’appel de procédure distante. (Exception de HRESULT : 0x800706BE)
+   à Microsoft.Office.Interop.Excel.Workbooks.Open(String Filename, Object UpdateLinks, Object ReadOnly, Object Format, Object Password, Object WriteResPassword, Object IgnoreReadOnlyRecommended, Object Origin, Object Delimiter, Object Editable, Object Notify, Object Converter, Object AddToMru, Object Local, Object CorruptLoad)
+   à SerialCom.com.Sauvegarde(Object name, Object folder) dans E:\Sauvegarde\com.vb:ligne 224
+28/01/2021 11:11:27 Fermeture du processus EXCEL
+28/01/2021 11:11:27 Connection au port série
+28/01/2021 11:11:27 Lancement d'excel
+28/01/2021 11:11:29 Programme lancé
+28/01/2021 11:32:44 Sauvegarde...
+28/01/2021 12:20:18 Fermeture du processus EXCEL
+28/01/2021 12:20:18 Connection au port série
+28/01/2021 12:20:18 Lancement d'excel
+28/01/2021 12:20:21 Programme lancé
+28/01/2021 12:20:24 Acquisition lancée
+28/01/2021 12:20:27 Acquisition lancée
+28/01/2021 12:20:31 Acquisition lancée
+28/01/2021 12:20:37 Acquisition lancée
+28/01/2021 12:22:28 Fermeture du processus EXCEL
+28/01/2021 12:22:28 Connection au port série
+28/01/2021 12:22:28 Lancement d'excel
+28/01/2021 12:22:30 Programme lancé
+28/01/2021 12:23:36 Fermeture du processus EXCEL
+28/01/2021 12:23:36 Connection au port série
+28/01/2021 12:23:36 Lancement d'excel
+28/01/2021 12:23:38 Programme lancé
+28/01/2021 12:23:46 Bouton sauvegarde appuyé
+28/01/2021 12:23:46 Sauvegarde...
