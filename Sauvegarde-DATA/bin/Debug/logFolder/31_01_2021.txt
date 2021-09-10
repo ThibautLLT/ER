@@ -1,5 +1,0 @@
-31/01/2021 11:24:04 Sauvegarde...
-31/01/2021 11:26:41 Fermeture du processus EXCEL
-31/01/2021 11:26:41 Connection au port série
-31/01/2021 11:26:41 Lancement d'excel
-31/01/2021 11:26:43 Programme lancé

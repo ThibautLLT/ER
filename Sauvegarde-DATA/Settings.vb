@@ -1,5 +1,4 @@
-﻿
-Namespace My
+﻿Namespace My
 
     'Cette classe vous permet de gérer des événements spécifiques dans la classe de paramètres :
     ' L'événement SettingChanging est déclenché avant la modification d'une valeur de paramètre.
