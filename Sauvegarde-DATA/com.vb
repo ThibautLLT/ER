@@ -12,14 +12,13 @@ Imports System.IO.File
 Public Class com
     '------------------------------------------------
     Dim myPort As Array
-    Dim textATraiter As String
-    Dim textAffiche As String
-    Dim folder As String            'chemin accès fichier
     Dim ComOpen
     Dim d As DateTime
     Dim dateDuJour As String
     Dim nomFichier As String
     Dim workSpace As String
+
+    Dim cacheData As String
 
     ' objet OLE pour controle Excel
     Dim ApExcel As New Excel.Application
@@ -27,7 +26,8 @@ Public Class com
     Dim objBook As Excel._Workbook
     Dim objSheets As Excel.Sheets
     Dim objSheet As Excel._Worksheet
-    Dim numLigne = 0
+
+
 
     Delegate Sub SetTextCallback(ByVal [text] As String) 'Added to prevent threading errors during receiveing of data
     '------------------------------------------------
@@ -68,15 +68,17 @@ Public Class com
     End Sub
 
     Public Sub sauvegarde_data(data As String)
-
-
-        Dim filename As String = My.Application.Info.DirectoryPath & "\log_data\" + Now.ToShortDateString().Replace("/", "_") + ".txt"
+        Dim filename As String = My.Application.Info.DirectoryPath & "\log_data\" + Now.ToShortDateString().Replace("/", "_") + ".svg"
         Dim sw As StreamWriter = AppendText(filename)
         Dim csvFormat As String
-        csvFormat = data.Replace(" ", ",")
+        cacheData += data
 
-        sw.WriteLine(csvFormat)
-        sw.Close()
+
+
+        csvFormat = csvFormat.Replace(" ", ",")
+        'sw.WriteLine(csvFormat)
+        'sw.Close()
+        cacheData = ""
     End Sub
 
 End Class
