@@ -1,11 +1,4 @@
-﻿Imports System
-Imports System.Threading
-Imports System.IO.Ports
-Imports System.ComponentModel
-Imports System.String
-Imports Microsoft.Office.Interop
-Imports Microsoft.Office.Interop.Excel
-Imports System.IO
+﻿Imports System.IO
 Imports System.IO.File
 
 
@@ -17,17 +10,6 @@ Public Class com
     Dim dateDuJour As String
     Dim nomFichier As String
     Dim workSpace As String
-
-    Dim cacheData As String
-
-    ' objet OLE pour controle Excel
-    Dim ApExcel As New Excel.Application
-    Dim objBooks As Excel.Workbooks
-    Dim objBook As Excel._Workbook
-    Dim objSheets As Excel.Sheets
-    Dim objSheet As Excel._Worksheet
-
-
 
     Delegate Sub SetTextCallback(ByVal [text] As String) 'Added to prevent threading errors during receiveing of data
     '------------------------------------------------
@@ -57,8 +39,7 @@ Public Class com
 
     Private Sub SerialPort1_DataReceived(sender As System.Object, e As System.IO.Ports.SerialDataReceivedEventArgs) Handles SerialPort1.DataReceived
         Dim textRecu = SerialPort1.ReadExisting() 'Reception des messages
-        sauvegarde_data(textRecu)
-
+        editionChaine(textRecu) 'Ajout au cache du text
     End Sub
 
     Private Sub com_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
@@ -66,19 +47,14 @@ Public Class com
             SerialPort1.Close()
         End If
     End Sub
-
-    Public Sub sauvegarde_data(data As String)
-        Dim filename As String = My.Application.Info.DirectoryPath & "\log_data\" + Now.ToShortDateString().Replace("/", "_") + ".svg"
+    Private Sub editionChaine(data As String)
+        ajoutAuSvG(data.Replace(" ", ","))
+    End Sub
+    Private Sub ajoutAuSvG(data As String)
+        Dim filename As String = My.Application.Info.DirectoryPath & "\log_data\" + Now.ToShortDateString().Replace("/", "_") + ".csv"
         Dim sw As StreamWriter = AppendText(filename)
-        Dim csvFormat As String
-        cacheData += data
-
-
-
-        csvFormat = csvFormat.Replace(" ", ",")
-        'sw.WriteLine(csvFormat)
-        'sw.Close()
-        cacheData = ""
+        sw.Write(data)
+        sw.Close()
     End Sub
 
 End Class
