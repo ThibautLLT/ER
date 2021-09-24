@@ -1,7 +1,6 @@
 ﻿Imports System.IO
 Imports System.IO.File
 
-
 Public Class com
     '------------------------------------------------
     Dim myPort As Array
@@ -10,6 +9,8 @@ Public Class com
     Dim dateDuJour As String
     Dim nomFichier As String
     Dim workSpace As String
+
+    Dim cache As String = ""
 
     Delegate Sub SetTextCallback(ByVal [text] As String) 'Added to prevent threading errors during receiveing of data
     '------------------------------------------------
@@ -39,7 +40,7 @@ Public Class com
 
     Private Sub SerialPort1_DataReceived(sender As System.Object, e As System.IO.Ports.SerialDataReceivedEventArgs) Handles SerialPort1.DataReceived
         Dim textRecu = SerialPort1.ReadExisting() 'Reception des messages
-        editionChaine(textRecu) 'Ajout au cache du text
+        analyseChaine(textRecu)
     End Sub
 
     Private Sub com_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
@@ -47,13 +48,32 @@ Public Class com
             SerialPort1.Close()
         End If
     End Sub
+
+    Sub analyseChaine(data As String)
+
+        cache += data.Replace(vbLf, "")
+        Dim i As Integer = 0
+        Dim splitedCache As Array = cache.Split(vbCr)
+
+        For Each splited As String In splitedCache
+            i = i + 1
+            If i < splitedCache.Length Then
+                Dim time As String = Now.ToLongTimeString()
+                editionChaine(time + " " + splited)
+            Else
+                cache = splited
+            End If
+
+        Next
+    End Sub
     Private Sub editionChaine(data As String)
         ajoutAuSvG(data.Replace(" ", ","))
     End Sub
+
     Private Sub ajoutAuSvG(data As String)
         Dim filename As String = My.Application.Info.DirectoryPath & "\log_data\" + Now.ToShortDateString().Replace("/", "_") + ".csv"
         Dim sw As StreamWriter = AppendText(filename)
-        sw.Write(data)
+        sw.WriteLine(data)
         sw.Close()
     End Sub
 
