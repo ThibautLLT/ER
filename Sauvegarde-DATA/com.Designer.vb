@@ -31,8 +31,6 @@ Partial Class com
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
-        Me.Panel5.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -42,12 +40,11 @@ Partial Class com
         '
         'Panel5
         '
-        Me.Panel5.Controls.Add(Me.RichTextBox1)
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel5.Location = New System.Drawing.Point(0, 64)
         Me.Panel5.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(765, 431)
+        Me.Panel5.Size = New System.Drawing.Size(490, 81)
         Me.Panel5.TabIndex = 18
         '
         'Timer1
@@ -86,29 +83,20 @@ Partial Class com
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(765, 64)
+        Me.Panel1.Size = New System.Drawing.Size(490, 64)
         Me.Panel1.TabIndex = 15
-        '
-        'RichTextBox1
-        '
-        Me.RichTextBox1.Location = New System.Drawing.Point(12, 7)
-        Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(741, 412)
-        Me.RichTextBox1.TabIndex = 0
-        Me.RichTextBox1.Text = ""
         '
         'com
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.AppWorkspace
-        Me.ClientSize = New System.Drawing.Size(765, 495)
+        Me.ClientSize = New System.Drawing.Size(490, 145)
         Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.Panel1)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "com"
         Me.Text = "ComRS232"
-        Me.Panel5.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
@@ -121,5 +109,4 @@ Partial Class com
     Friend WithEvents ComboBox2 As ComboBox
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents RichTextBox1 As RichTextBox
 End Class

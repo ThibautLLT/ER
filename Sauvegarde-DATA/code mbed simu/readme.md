@@ -1,0 +1,1 @@
+Ce dossier contient le code pour la carte mbed, qui simule des communications sur la liaison série
