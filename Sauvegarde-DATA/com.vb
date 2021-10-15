@@ -1,6 +1,6 @@
 ﻿Imports System.IO
 Imports System.IO.File
-Imports System.Web.script.serialisation
+Dim json As New chil
 
 
 Public Class com
@@ -64,12 +64,11 @@ Public Class com
                 editionChaine(time + " " + splited)
                 Dim mots As Array = splited.Split(" ") 'divise la chaine de carractère dans un tableau, id du message à la case 1
                 Select Case mots(1)
-                    Case "51" ' Message ID 51 data0 3 data1 5
+                    Case "51" ' Message ID 51 data0 3 data1 5 Irradiance pfaible pfort
                         Console.WriteLine(mots(3))
-
+                        Dim Irradiance As carteIrradiance = New carteIrradiance()
                     Case "32" ' Etat des relais
                     Case "31" ' temp panneau
-                    Case "51" ' Irradiance
                     Case "71" ' ?
                     Case Else
                         ' default 
@@ -92,4 +91,18 @@ Public Class com
         sw.Close()
     End Sub
 
+End Class
+
+
+Class superVision
+    Dim ser As JavaScriptSerializer = New JavaScriptSerializer()
+    Sub New()
+
+
+    End Sub
+End Class
+
+Class carteIrradiance
+    Public Property pFort As String
+    Public Property pFaible As String
 End Class
