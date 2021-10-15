@@ -1,5 +1,7 @@
 ﻿Imports System.IO
 Imports System.IO.File
+Imports System.Web.script.serialisation
+
 
 Public Class com
     '------------------------------------------------
@@ -60,6 +62,19 @@ Public Class com
             If i < splitedCache.Length Then
                 Dim time As String = Now.ToLongTimeString()
                 editionChaine(time + " " + splited)
+                Dim mots As Array = splited.Split(" ") 'divise la chaine de carractère dans un tableau, id du message à la case 1
+                Select Case mots(1)
+                    Case "51" ' Message ID 51 data0 3 data1 5
+                        Console.WriteLine(mots(3))
+
+                    Case "32" ' Etat des relais
+                    Case "31" ' temp panneau
+                    Case "51" ' Irradiance
+                    Case "71" ' ?
+                    Case Else
+                        ' default 
+                End Select
+
             Else
                 cache = splited
             End If
