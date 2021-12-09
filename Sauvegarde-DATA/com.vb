@@ -38,7 +38,7 @@ Public Class com
         End Try
 
         'timer interval
-        Dim Timer As New Timers.Timer(900000) '1000 ms '900000 pour 15 minutes
+        Dim Timer As New Timers.Timer(300000) '1000 ms '900000 pour 15 minutes
         Timer.AutoReset = True
         AddHandler Timer.Elapsed, AddressOf TimerElapsedHandler
         Timer.Start()

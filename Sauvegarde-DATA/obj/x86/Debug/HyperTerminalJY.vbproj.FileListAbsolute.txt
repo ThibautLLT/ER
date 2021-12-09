@@ -202,3 +202,13 @@ U:\ER-main\Sauvegarde-DATA\obj\x86\Debug\HyperTerminalJY.vbproj.CopyComplete
 U:\ER-main\Sauvegarde-DATA\obj\x86\Debug\SerialCom.exe
 U:\ER-main\Sauvegarde-DATA\obj\x86\Debug\SerialCom.xml
 U:\ER-main\Sauvegarde-DATA\obj\x86\Debug\SerialCom.pdb
+C:\Users\thiba\OneDrive\IUT\S3-BIS\ER\Sauvegarde-DATA\bin\Debug\System.Text.Json.dll
+C:\Users\thiba\OneDrive\IUT\S3-BIS\ER\Sauvegarde-DATA\bin\Debug\System.Memory.dll
+C:\Users\thiba\OneDrive\IUT\S3-BIS\ER\Sauvegarde-DATA\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\thiba\OneDrive\IUT\S3-BIS\ER\Sauvegarde-DATA\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\thiba\OneDrive\IUT\S3-BIS\ER\Sauvegarde-DATA\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\thiba\OneDrive\IUT\S3-BIS\ER\Sauvegarde-DATA\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\thiba\OneDrive\IUT\S3-BIS\ER\Sauvegarde-DATA\bin\Debug\System.Buffers.dll
+C:\Users\thiba\OneDrive\IUT\S3-BIS\ER\Sauvegarde-DATA\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\thiba\OneDrive\IUT\S3-BIS\ER\Sauvegarde-DATA\obj\x86\Debug\SerialCom.exe.config
+C:\Users\thiba\OneDrive\IUT\S3-BIS\ER\Sauvegarde-DATA\obj\x86\Debug\HyperTerminalJY.vbproj.CopyComplete
