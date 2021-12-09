@@ -1,12 +1,12 @@
 ﻿Imports System.IO
 Imports System.IO.File
-Dim json As New chil
 
 
 Public Class com
     '------------------------------------------------
     Dim myPort As Array
     Dim ComOpen
+    Dim ComOpen2
     Dim d As DateTime
     Dim dateDuJour As String
     Dim nomFichier As String
@@ -27,15 +27,22 @@ Public Class com
         'Connexion au port série
         Try
             myPort = IO.Ports.SerialPort.GetPortNames()
-            ComboBox1.Items.AddRange(myPort) 'Ajout des ports à la combobox
-            ComboBox1.Text = ComboBox1.Items(ComboBox1.Items.Count - 1)
-            ComboBox2.Text = "115200" 'Ajout du bitrate
-            SerialPort1.PortName = ComboBox1.Text
-            SerialPort1.BaudRate = ComboBox2.Text
+            ComboBox3.Items.AddRange(myPort) 'Ajout des ports à la combobox
+            ComboBox3.Text = ComboBox3.Items(ComboBox3.Items.Count - 1)
+            ComboBox4.Text = "115200" 'Ajout du bitrate
+            SerialPort1.PortName = ComboBox3.Text
+            SerialPort1.BaudRate = ComboBox4.Text
             SerialPort1.Open()
             ComOpen = True
         Catch ex As Exception
         End Try
+
+        'timer interval
+        Dim Timer As New Timers.Timer(900000) '1000 ms '900000 pour 15 minutes
+        Timer.AutoReset = True
+        AddHandler Timer.Elapsed, AddressOf TimerElapsedHandler
+        Timer.Start()
+
     End Sub
 
 
@@ -48,6 +55,9 @@ Public Class com
     Private Sub com_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         If ComOpen = True Then
             SerialPort1.Close()
+        End If
+        If ComOpen2 = True Then
+            SerialPort2.Close()
         End If
     End Sub
 
@@ -62,18 +72,6 @@ Public Class com
             If i < splitedCache.Length Then
                 Dim time As String = Now.ToLongTimeString()
                 editionChaine(time + " " + splited)
-                Dim mots As Array = splited.Split(" ") 'divise la chaine de carractère dans un tableau, id du message à la case 1
-                Select Case mots(1)
-                    Case "51" ' Message ID 51 data0 3 data1 5 Irradiance pfaible pfort
-                        Console.WriteLine(mots(3))
-                        Dim Irradiance As carteIrradiance = New carteIrradiance()
-                    Case "32" ' Etat des relais
-                    Case "31" ' temp panneau
-                    Case "71" ' ?
-                    Case Else
-                        ' default 
-                End Select
-
             Else
                 cache = splited
             End If
@@ -91,18 +89,22 @@ Public Class com
         sw.Close()
     End Sub
 
-End Class
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        myPort = IO.Ports.SerialPort.GetPortNames()
+        ComboBox5.Items.AddRange(myPort) 'Ajout des ports à la combobox
+        ComboBox5.Text = ComboBox5.Items(ComboBox5.Items.Count - 1)
+        ComboBox6.Text = "115200" 'Ajout du bitrate
 
-
-Class superVision
-    Dim ser As JavaScriptSerializer = New JavaScriptSerializer()
-    Sub New()
-
-
+        SerialPort2.PortName = ComboBox5.Text
+        SerialPort2.BaudRate = ComboBox6.Text
+        SerialPort2.Open()
+        ComOpen2 = True
     End Sub
-End Class
+    Private Sub TimerElapsedHandler(ByVal sender As Object, ByVal e As Timers.ElapsedEventArgs)
 
-Class carteIrradiance
-    Public Property pFort As String
-    Public Property pFaible As String
+        'request tension value on timer event
+        If ComOpen2 = True Then
+            SerialPort2.WriteLine("P") ' envoie de la demande de tensions
+        End If
+    End Sub
 End Class

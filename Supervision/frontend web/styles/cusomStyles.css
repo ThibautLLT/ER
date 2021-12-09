@@ -1,0 +1,125 @@
+.html, body {
+  display: flex;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  width: 1920px;
+  height: 1080px;
+  margin: 0;
+  padding: 0;
+  font-family:cursive ;
+
+}
+
+#my-chart.line {
+  height: 200px;
+  max-width: 2000px;
+  margin: 0 auto;
+}
+
+
+::placeholder{
+  color: black;
+  opacity: 50;
+}
+.spce{
+  padding-left: 10px;
+}
+
+.arrowSelect::before{
+  width: 2em;
+  right: 0; top: 0; bottom: 0;
+  border-radius: 0 3px 3px 0;
+}
+.padding{
+  padding: 0px;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 45%;
+  height: 15px;
+  border-radius: 5px;  
+  background: #d3d3d3;
+  outline: none;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 45%;
+  height: 25px;
+  border-radius: 50%; 
+  background: #5755d9;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #5755d9;
+  cursor: pointer;
+}
+
+.red_param{
+  color: red
+}
+.black_param{
+  color: black
+}
+.green_param{
+  color:green
+}
+
+.test{
+  border-color: blue;
+}
+
+.red{
+  background-color: red;
+}
+
+.black{
+  background-color: black;
+}
+.outlines{
+  border-color: black;
+  border-width: 10px;
+}
+
+.data-axis {
+  grid-area: data-axis;
+  writing-mode: tb-rl;
+  transform: rotateZ(180deg);
+}
+
+
+.logo{
+  max-width: 60%;
+  height: auto;
+  margin-top: -30%;
+  margin-left: 20%;
+}
+
+.customContain{
+  height: 170px;
+  padding-bottom: 50px;
+}
+
+.first{
+  margin-top: -5%;
+}
+
+.legend-size{
+  max-width: 50%;
+  height: auto;
+  size: 50%;
+  border: 0px;
+}
+
+.test{
+  margin-bottom: 100px;
+}
