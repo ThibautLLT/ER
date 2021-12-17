@@ -90,6 +90,7 @@
         data: [],
         timeData: [],
         max: 0,
+        min: 0,
         timeMax:"",
 
       },
@@ -99,6 +100,7 @@
         PanMax: "",
         string1: {
           max: 0,
+          min: 0,
           timeMax: "",
           PanMax: "",
           pan1: {
@@ -124,6 +126,7 @@
         },
         string2: {
           max: 0,
+          min: 0,
           timeMax: "",
           PanMax: "",
           pan1: {
@@ -149,6 +152,7 @@
         },
         string3: {
           max: 0,
+          min: 0,
           timeMax: "",
           PanMax: "",
           pan1: {
@@ -174,6 +178,7 @@
         },
         string4: {
           max: 0,
+          min: 0,
           timeMax: "",
           PanMax: "",
           pan1: {
@@ -211,7 +216,7 @@
           window.location.reload(1)
           controleDate = currentControleDate
         }
-      }, 500); // 300000 pour 15 minutes
+      }, 1500); // 300000 pour 15 minutes
     }
     
   async function getCSV() {
@@ -261,6 +266,9 @@
             if(data.irradiance.max < irradiance) {
               data.irradiance.max = irradiance
               data.irradiance.timeMax = time
+            }
+            if(data.irradiance.min > irradiance) {
+              data.irradiance.min = irradiance
             }
             data.irradiance.timeData.push(time)
             data.irradiance.data.push(irradiance)
@@ -338,13 +346,14 @@
 
 
   async function traitementIrradiance() {
+    let lastDate = ''
     let oldData = 0, first = true
     
     let irradianceElement = document.getElementById('irradiance')
-    let irradianceTxt = document.getElementById("IrradianceTXT")
+    let irradianceTxt = document.getElementById("irradianceMaxMin")
 
-    let irradianceTxtData = `Maximum:\n${data.irradiance.max} W/m² atteint à ${data.irradiance.timeMax} \nActuelle:\n${data.irradiance.timeData[data.irradiance.timeData.length-1]} : ${data.irradiance.data[data.irradiance.data.length-1]} W/m²`
-    irradianceTxt.innerText = irradianceTxtData
+    let legend = `Irradiance W/m²\nMax:${data.irradiance.max.toFixed(2)} - Min: ${data.irradiance.min.toFixed(2)}`
+    irradianceTxt.innerText = legend
   
     irradianceElement.innerHTML = null
     
@@ -358,7 +367,10 @@
       irradianceElement.innerHTML+= dataChild
       oldData = data
       oldData = value
+      
     });
+
+    document.getElementById("lastUpdate").innerHTML = `Dernière mise à jour à ${data.irradiance.timeData[data.irradiance.timeData.length-1]}`
     return
   }
   
@@ -388,7 +400,7 @@
 
     //string 1
     let String1Element = document.getElementById('string1')
-    let String1ElementTxt = document.getElementById("string1TXT")
+    let String1ElementTxt = document.getElementById("string1txt")
 
     String1Element.innerHTML = null
     
@@ -405,13 +417,19 @@
           data.panneaux.string1.max = currenPanData[p]
           data.panneaux.string1.timeMax = data.panneaux.string1['pan'+p].timeData[dataNbr]
         }
+
+        if(data.panneaux.string1.min > currenPanData[p]){
+          data.panneaux.string1.min = currenPanData[p]
+        }
       }
       
       //console.log(`from ${oldPanData[1]} to ${currenPanData[1]}`)
       let stringTXT = `Maximum: ${data.panneaux.string1.max} V à ${data.panneaux.string1.timeMax}\nPanneau 1: ${currenPanData[1].toFixed(2)}V\nPanneau 2: ${currenPanData[2].toFixed(2)}V\nPanneau 3: ${currenPanData[3].toFixed(2)}V\nPanneau 4: ${currenPanData[4].toFixed(2)}V\nPanneau 5: ${currenPanData[5].toFixed(2)}V\n`
-      let test = `<ul class="charts-css legend legend-line">\n<li> ${currenPanData[1].toFixed(2)} V</li>\n<li> ${currenPanData[2].toFixed(2)} V</li>\n<li> ${currenPanData[3].toFixed(2)} V</li>\n<li> ${currenPanData[4].toFixed(2)} V</li>\n<li> ${currenPanData[5].toFixed(2)} V</li>\n</ul>`
+      let test = `<ul class="charts-css legend legend-line">\n<li>Panneau 1 ${currenPanData[1].toFixed(2)} V</li>\n<li>Panneau 2 ${currenPanData[2].toFixed(2)} V</li>\n<li>Panneau 3 ${currenPanData[3].toFixed(2)} V</li>\n<li>Panneau 4 ${currenPanData[4].toFixed(2)} V</li>\n<li>Panneau 5 ${currenPanData[5].toFixed(2)} V</li>\n</ul>`
       
       String1ElementTxt.innerHTML = test
+      document.getElementById("s1MaxMin").innerText = `Tension V\nMax:${data.panneaux.string1.max.toFixed(2)} - Min: ${data.panneaux.string1.min.toFixed(2)}`
+
       
       // tracer
       let graph = `<tr>\n
@@ -430,7 +448,7 @@
 
     //string 2
     let String2Element = document.getElementById('string2')
-    let String2ElementTxt = document.getElementById("string2TXT")
+    let String2ElementTxt = document.getElementById("string2txt")
 
     String2Element.innerHTML = null
     
@@ -447,12 +465,15 @@
           data.panneaux.string2.max = currenPanData[p]
           data.panneaux.string2.timeMax = data.panneaux.string2['pan'+p].timeData[dataNbr]
         }
+        if(data.panneaux.string2.min > currenPanData[p]){
+          data.panneaux.string2.min = currenPanData[p]
+        }
       }
       
       //console.log(`from ${oldPanData[1]} to ${currenPanData[1]}`)
       let stringTXT = `\nMaximum: ${data.panneaux.string2.max} V à ${data.panneaux.string2.timeMax}\nPanneau 1: ${currenPanData[1].toFixed(2)}V\nPanneau 2: ${currenPanData[2].toFixed(2)}V\nPanneau 3: ${currenPanData[3].toFixed(2)}V\nPanneau 4: ${currenPanData[4].toFixed(2)}V\nPanneau 5: ${currenPanData[5].toFixed(2)}V\n`
-      let test = `<ul class="charts-css legend legend-line">\n<li> ${currenPanData[1].toFixed(2)} V</li>\n<li> ${currenPanData[2].toFixed(2)} V</li>\n<li> ${currenPanData[3].toFixed(2)} V</li>\n<li> ${currenPanData[4].toFixed(2)} V</li>\n<li> ${currenPanData[5].toFixed(2)} V</li>\n</ul>`
-      
+      let test = `<ul class="charts-css legend legend-line">\n<li>Panneau 1 ${currenPanData[1].toFixed(2)} V</li>\n<li>Panneau 2 ${currenPanData[2].toFixed(2)} V</li>\n<li>Panneau 3 ${currenPanData[3].toFixed(2)} V</li>\n<li>Panneau 4 ${currenPanData[4].toFixed(2)} V</li>\n<li>Panneau 5 ${currenPanData[5].toFixed(2)} V</li>\n</ul>`
+      document.getElementById("s2MaxMin").innerText = `Tension V\nMax:${data.panneaux.string2.max.toFixed(2)} - Min: ${data.panneaux.string2.min.toFixed(2)}`
       String2ElementTxt.innerHTML = test
       
       // tracer
@@ -468,7 +489,7 @@
 
     //string 3
     let String3Element = document.getElementById('string3')
-    let String3ElementTxt = document.getElementById("string3TXT")
+    let String3ElementTxt = document.getElementById("string3txt")
 
     String3Element.innerHTML = null
     
@@ -485,11 +506,16 @@
           data.panneaux.string3.max = currenPanData[p]
           data.panneaux.string3.timeMax = data.panneaux.string3['pan'+p].timeData[dataNbr]
         }
+
+        if(data.panneaux.string3.min > currenPanData[p]){
+          data.panneaux.string3.min = currenPanData[p]
+        }
       }
       
       //console.log(`from ${oldPanData[1]} to ${currenPanData[1]}`)
       let stringTXT = `\nMaximum: ${data.panneaux.string3.max} V à ${data.panneaux.string3.timeMax}\nPanneau 1: ${currenPanData[1].toFixed(2)}V\nPanneau 2: ${currenPanData[2].toFixed(2)}V\nPanneau 3: ${currenPanData[3].toFixed(2)}V\nPanneau 4: ${currenPanData[4].toFixed(2)}V\nPanneau 5: ${currenPanData[5].toFixed(2)}V\n`
-      let test = `<ul class="charts-css legend legend-line">\n<li> ${currenPanData[1].toFixed(2)} V</li>\n<li> ${currenPanData[2].toFixed(2)} V</li>\n<li> ${currenPanData[3].toFixed(2)} V</li>\n<li> ${currenPanData[4].toFixed(2)} V</li>\n<li> ${currenPanData[5].toFixed(2)} V</li>\n</ul>`
+      let test = `<ul class="charts-css legend legend-line">\n<li>Panneau 1 ${currenPanData[1].toFixed(2)} V</li>\n<li>Panneau 2 ${currenPanData[2].toFixed(2)} V</li>\n<li>Panneau 3 ${currenPanData[3].toFixed(2)} V</li>\n<li>Panneau 4 ${currenPanData[4].toFixed(2)} V</li>\n<li>Panneau 5 ${currenPanData[5].toFixed(2)} V</li>\n</ul>`
+      document.getElementById("s3MaxMin").innerText = `Tension V\nMax:${data.panneaux.string3.max.toFixed(2)} - Min: ${data.panneaux.string3.min.toFixed(2)}`
       
       String3ElementTxt.innerHTML = test
       
@@ -507,7 +533,7 @@
 
     //string 4
     let String4Element = document.getElementById('string4')
-    let String4ElementTxt = document.getElementById("string4TXT")
+    let String4ElementTxt = document.getElementById("string4txt")
 
     String4Element.innerHTML = null
     
@@ -524,12 +550,16 @@
           data.panneaux.string4.max = currenPanData[p]
           data.panneaux.string4.timeMax = data.panneaux.string4['pan'+p].timeData[dataNbr]
         }
+        if(data.panneaux.string4.min > currenPanData[p]){
+          data.panneaux.string4.min = currenPanData[p]
+        }
       }
       
       //console.log(`from ${oldPanData[1]} to ${currenPanData[1]}`)
       let stringTXT = `\nMaximum: ${data.panneaux.string4.max} V à ${data.panneaux.string4.timeMax}\nPanneau 1: ${currenPanData[1].toFixed(2)}V\nPanneau 2: ${currenPanData[2].toFixed(2)}V\nPanneau 3: ${currenPanData[3].toFixed(2)}V\nPanneau 4: ${currenPanData[4].toFixed(2)}V\nPanneau 5: ${currenPanData[5].toFixed(2)}V\n`
-      let test = `<ul class="removeBorder charts-css legend legend-line">\n<li> ${currenPanData[1].toFixed(2)} V</li>\n<li> ${currenPanData[2].toFixed(2)} V</li>\n<li> ${currenPanData[3].toFixed(2)} V</li>\n<li> ${currenPanData[4].toFixed(2)} V</li>\n<li> ${currenPanData[5].toFixed(2)} V</li>\n</ul>`
+      let test = `<ul class="charts-css legend legend-line">\n<li>Panneau 1 ${currenPanData[1].toFixed(2)} V</li>\n<li>Panneau 2 ${currenPanData[2].toFixed(2)} V</li>\n<li>Panneau 3 ${currenPanData[3].toFixed(2)} V</li>\n<li>Panneau 4 ${currenPanData[4].toFixed(2)} V</li>\n<li>Panneau 5 ${currenPanData[5].toFixed(2)} V</li>\n</ul>`
       
+      document.getElementById("s4MaxMin").innerText = `Tension V\nMax:${data.panneaux.string4.max.toFixed(2)} - Min: ${data.panneaux.string4.min.toFixed(2)}`
       String4ElementTxt.innerHTML = test
       
       // tracer
@@ -545,17 +575,27 @@
 
     return
   }
-
-  async function resetData() {
-    //reste à faire la reste pour le passage à la nouvelle journée
-  }
 </script>
   <body onload="aquisitionIntervalle()" class="body">
     <div class="hero bg-primary" style="height: 1080px;">
       <div class="hero-body">
         <img src="./images/iut_logo_2.png" class="logo" alt="">
-        
         <!-- <button class="btn" onclick="getCSV()">Demande de test</button>   -->
+        <h5 id="lastUpdate"></h5>
+        <div class="container">
+          <div class="columns">
+            <div class="column test">
+              <h6>String 1</h6>
+              <div id="string1txt" class="first-legend legend"></div>
+              <h6>String 2</h6>
+              <div id="string2txt" class="legend"></div>
+              <h6>String 3</h6>
+              <div id="string3txt" class="legend"></div>
+              <h6>String 4</h6>
+              <div id="string4txt" class="legend"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     
@@ -563,86 +603,92 @@
       <div class="columns">
         <div class="column test">
           
-          <div class="paddingCol container">
+          <div class="container">
             <div class="first customContain columns outlines">
-              <div class="legend-size column col-lg-auto col-3" id="IrradianceTXT">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates fugit corporis tenetur sunt sint facere quisquam itaque tempora, porro corrupti quia deleniti obcaecati rem blanditiis placeat sequi, quidem cupiditate adipisci.
-                
-              </div>
               <div class="column outlines">
-                <table class="charts-css hide-data show-labels show-heading line my-chart.line show-primary-axis" id="my-chart">
-                  <caption>Irradiance</caption>
-                  <tbody id="irradiance" class="test">
-                  </tbody>
-                </table>
-
+                <div id="data-axes">
+                  <table class="charts-css hide-data  show-labels show-heading line my-chart.line show-primary-axis">
+                    <caption> Évolution de l'irradiance en fonction du temps </caption>
+                    <tbody id="irradiance">
+                      
+                    </tbody>
+                  </table>
+                  <div class="data-axis" id="irradianceMaxMin">
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="paddingCol customContain container">
+          <div class="container firstString">
             <div class="columns outlines">
-              <div class="legend-size column col-lg-auto col-3" id="string1TXT">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, modi optio nihil molestiae magni eaque error similique, quam nostrum ipsum mollitia. Eum voluptatum quaerat tenetur quam ab odit sequi nulla?
-              </div>
               <div class="column outlines">
-                <table class="charts-css hide-data line show-labels show-heading my-chart.line multiple show-primary-axis">
-                  <caption>Tension String 1</caption>
-                  <tbody id="string1">
-                  </tbody>
-                </table>
+                <div id="data-axes">
+                  <table class="charts-css hide-data  line show-labels show-heading line my-chart.line multiple show-primary-axis">
+                    <caption> Évolution des tensions en fonction du temps </caption>
+                    <tbody id="string1">
+                      
+                    </tbody>
+                  </table>
+                  <div class="data-axis" id="s1MaxMin">
+                  </div>
+                </div>
 
               </div>
             </div>
           </div>
 
-          <div class="paddingCol customContain container">
+          <div class="container">
             <div class="columns outlines">
-              <div class="legend-size column col-lg-auto col-3" id="string2TXT">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, modi optio nihil molestiae magni eaque error similique, quam nostrum ipsum mollitia. Eum voluptatum quaerat tenetur quam ab odit sequi nulla?
-              </div>
               <div class="column outlines">
-                <table class="charts-css hide-data line show-labels show-heading line my-chart.line multiple show-primary-axis">
-                  <caption>Tension String 2</caption>
-                  <tbody id="string2">
-                  </tbody>
-                </table>
+                <div id="data-axes">
+                  <table class="charts-css hide-data  line show-labels show-heading line my-chart.line multiple show-primary-axis">
+                    <tbody id="string2">
+                      
+                    </tbody>
+                  </table>
+                  <div class="data-axis" id="s2MaxMin">
+                  </div>
+                </div>
 
               </div>
             </div>
           </div>
 
-          <div class="paddingCol customContain container">
+          <div class="container">
             <div class="columns outlines">
-              <div class="legend-size column col-lg-auto col-3" id="string3TXT">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, modi optio nihil molestiae magni eaque error similique, quam nostrum ipsum mollitia. Eum voluptatum quaerat tenetur quam ab odit sequi nulla?
-              </div>
               <div class="column outlines">
-                <table class="charts-css hide-data line show-labels show-heading line my-chart.line multiple show-primary-axis">
-                  <caption>Tension String 3</caption>
-                  <tbody id="string3">
-                  </tbody>
-                </table>
+                <div id="data-axes">
+                  <table class="charts-css hide-data  line show-labels show-heading line my-chart.line multiple show-primary-axis">
+                    <tbody id="string3">
+                      
+                    </tbody>
+                  </table>
+                  <div class="data-axis" id="s3MaxMin">
+                  </div>
+                </div>
 
               </div>
             </div>
           </div>
 
-          <div class="paddingCol customContain container">
+          <div class="container">
             <div class="columns outlines">
-              <div class="legend-size column col-lg-auto col-3" id="string4TXT">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, modi optio nihil molestiae magni eaque error similique, quam nostrum ipsum mollitia. Eum voluptatum quaerat tenetur quam ab odit sequi nulla?
-              </div>
               <div class="column outlines">
-                <table class="charts-css show-labels hide-data line show-labels show-heading line my-chart.line multiple show-primary-axis">
-                  <caption>Tension String 4</caption>
-                  <tbody id="string4">
-                  </tbody>
-                </table>
+                <div id="data-axes">
+                  <table class="charts-css hide-data  line show-labels show-heading line my-chart.line multiple show-primary-axis">
+                    <tbody id="string4">
+                      
+                    </tbody>
+                  </table>
+                  <div class="data-axis" id="s4MaxMin">
+                  </div>
+                </div>
 
               </div>
             </div>
           </div>
+          
       </div>
     </div>
 

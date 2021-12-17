@@ -74,9 +74,6 @@
   color:green
 }
 
-.test{
-  border-color: blue;
-}
 
 .red{
   background-color: red;
@@ -98,19 +95,15 @@
 
 
 .logo{
-  max-width: 60%;
+  max-width: 50%;
   height: auto;
-  margin-top: -30%;
-  margin-left: 20%;
+  margin-top: -25%;
+  margin-left: 25%;
 }
 
 .customContain{
-  height: 170px;
+  height: 200px;
   padding-bottom: 50px;
-}
-
-.first{
-  margin-top: -5%;
 }
 
 .legend-size{
@@ -121,5 +114,49 @@
 }
 
 .test{
-  margin-bottom: 100px;
+  margin-bottom: 0px;
+}
+
+#data-axes {
+  border-left: black;
+  border-radius: 5px;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: 50px 1fr;
+  grid-template-rows: 200px 50px;
+  grid-template-areas:
+  "data-axis chart"
+  ".         primary-axis";
+}
+#data-axes > table {
+  grid-area: chart;
+}
+#data-axes > .primary-axis {
+  grid-area: primary-axis;
+}
+#data-axes > .data-axis {
+  grid-area: data-axis;
+  writing-mode: tb-rl;
+  transform: rotateZ(180deg);
+}
+
+.first{
+  margin-top: -445px;
+  margin-bottom: 15px;
+}
+.container .column{
+  height: 195px;
+  margin-top: 7px;
+}
+
+.firstString{
+  margin-top: 0px;
+}
+
+.first-legend {
+  margin-top: -20px;
+}
+.legend{
+  margin-left: 20px;
 }
