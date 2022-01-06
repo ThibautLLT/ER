@@ -1,18 +1,17 @@
 # ER
-# github: "https://github.com/ThibautLLT/ER"
+github: "https://github.com/ThibautLLT/ER"
 Projet d'étude et réalisation : Solution de supervision
 Enseignants: M.Lechenadec, M.Martincic
-Élève: Thibaut Le Louët 2021
+Etudiant: Thibaut Le Louët - 2021
 
  Solution de sauvegarde journalière et de supervision autonome comportant:
- - un programme mbed C++
+ - des programmes mbed C++
  - un logiciel d'acquisition et de sauvegarde
  - un back-end web en pyhon
  - une page web de supervision avec ses styles associés
 
 # Lisez les "readme.md"
-# Ils permettent une meilleur compréhension du foncionnement de chaque progammes / scripts
-
+Ils permettent une meilleur compréhension du foncionnement de chaque progammes / scripts
 
 # Programme mbed C++
 Repertoire : "ER-main/code mbed/"
