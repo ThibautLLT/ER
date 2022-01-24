@@ -13,20 +13,7 @@ CORS(app)
 
 jsonPath = "Supervision/backend py/test.json" 
 dataPath = "Sauvegarde-DATA/bin/Debug/log_data/"
-@app.route("/getJson", methods=["GET"])
-def sendFile():
-    try:
-        data = open(jsonPath, "r").read()
-        response = app.response_class(
-            response=data,
-            status=200,
-            mimetype='application/json'
-        )
-        return response
-    except FileNotFoundError:
-        abort(404) 
-
-        
+       
 @app.route("/getCSV", methods=["GET"])
 def sendData():
     try:
@@ -41,9 +28,6 @@ def sendData():
         return response
     except FileNotFoundError:
         abort(404) 
-
-
-
 
 if __name__ == "__main__":
     print("API backend d'envoie des datas jounalières à la age web")

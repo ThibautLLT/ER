@@ -4,235 +4,233 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Supervision IUT Cachan</title>
+  <title>Monitoring IUT Cachan</title>
   <link rel="stylesheet" href="./styles/cusomStyles.css">
   <link rel="stylesheet" href="./styles/charts.min.css">
   <link rel="stylesheet" href="./styles/spectre-dist/spectre.min.css">
 </head>
 <script>
-    const ip = "192.168.179.241"
-    const date = new Date()
-    //permet de stocker l'intégralité d'une asquisiion de panneaux 
-    const cache = {
-      string1: {
-        tensions: {
-          1: 0,
-          2: 0,
-          3: 0,
-          4: 0,
-          5: 0,
-        },
-        tempsPanneaux: {
-          1: '',
-          2: '',
-          3: '',
-          4: '',
-          5: '',
-        }
+  const ip = "192.168.179.241"
+  const date = new Date()
+  let controleDate = `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`
+
+  // permet de stocker l'intégralité d'une asquisiion de panneaux 
+  const cache = {
+    string1: {
+      tensions: {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
       },
-      string2: {
-        tensions: {
-          1: 0,
-          2: 0,
-          3: 0,
-          4: 0,
-          5: 0,
-        },
-        tempsPanneaux: {
-          1: 0,
-          2: 0,
-          3: 0,
-          4: 0,
-          5: 0,
-        }
+      tempsPanneaux: {
+        1: '',
+        2: '',
+        3: '',
+        4: '',
+        5: '',
+      }
+    },
+    string2: {
+      tensions: {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
       },
-      string3: {
-        tensions: {
-          1: 0,
-          2: 0,
-          3: 0,
-          4: 0,
-          5: 0,
-        },
-        tempsPanneaux: {
-          1: 0,
-          2: 0,
-          3: 0,
-          4: 0,
-          5: 0,
-        }
+      tempsPanneaux: {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+      }
+    },
+    string3: {
+      tensions: {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
       },
-      string4: {
-        tensions: {
-          1: 0,
-          2: 0,
-          3: 0,
-          4: 0,
-          5: 0,
-        },
-        tempsPanneaux: {
-          1: 0,
-          2: 0,
-          3: 0,
-          4: 0,
-          5: 0,
-        }
+      tempsPanneaux: {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+      }
+    },
+    string4: {
+      tensions: {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+      },
+      tempsPanneaux: {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
       }
     }
-    // const defaultCache = cache
+  }
 
-    let controleDate = `${date.getDate()}-${date.getMonth()+1}-${date.getFullYear()}`
-    console.log('date')
-    console.log(controleDate)
-    
-    const data = {
-      irradiance: {
-        data: [],
-        timeData: [],
+  const data = {
+    irradiance: {
+      data: [],
+      timeData: [],
+      max: 0,
+      min: 0,
+      timeMax: "",
+
+    },
+    panneaux: {
+      max: 0,
+      timeMax: "",
+      PanMax: "",
+      string1: {
         max: 0,
         min: 0,
-        timeMax:"",
-
-      },
-      panneaux: {
-        max: 0,
         timeMax: "",
         PanMax: "",
-        string1: {
-          max: 0,
-          min: 0,
-          timeMax: "",
-          PanMax: "",
-          pan1: {
-            data: [],
-            timeData: [],
-          },
-          pan2: {
-            data: [],
-            timeData: [],
-          },
-          pan3: {
-            data: [],
-            timeData: [],
-          },
-          pan4: {
-            data: [],
-            timeData: [],
-          },
-          pan5: {
-            data: [],
-            timeData: [],
-          },
+        pan1: {
+          data: [],
+          timeData: [],
         },
-        string2: {
-          max: 0,
-          min: 0,
-          timeMax: "",
-          PanMax: "",
-          pan1: {
-            data: [],
-            timeData: [],
-          },
-          pan2: {
-            data: [],
-            timeData: [],
-          },
-          pan3: {
-            data: [],
-            timeData: [],
-          },
-          pan4: {
-            data: [],
-            timeData: [],
-          },
-          pan5: {
-            data: [],
-            timeData: [],
-          },
+        pan2: {
+          data: [],
+          timeData: [],
         },
-        string3: {
-          max: 0,
-          min: 0,
-          timeMax: "",
-          PanMax: "",
-          pan1: {
-            data: [],
-            timeData: [],
-          },
-          pan2: {
-            data: [],
-            timeData: [],
-          },
-          pan3: {
-            data: [],
-            timeData: [],
-          },
-          pan4: {
-            data: [],
-            timeData: [],
-          },
-          pan5: {
-            data: [],
-            timeData: [],
-          },
+        pan3: {
+          data: [],
+          timeData: [],
         },
-        string4: {
-          max: 0,
-          min: 0,
-          timeMax: "",
-          PanMax: "",
-          pan1: {
-            data: [],
-            timeData: [],
-          },
-          pan2: {
-            data: [],
-            timeData: [],
-          },
-          pan3: {
-            data: [],
-            timeData: [],
-          },
-          pan4: {
-            data: [],
-            timeData: [],
-          },
-          pan5: {
-            data: [],
-            timeData: [],
-          },
+        pan4: {
+          data: [],
+          timeData: [],
         },
-      }
+        pan5: {
+          data: [],
+          timeData: [],
+        },
+      },
+      string2: {
+        max: 0,
+        min: 0,
+        timeMax: "",
+        PanMax: "",
+        pan1: {
+          data: [],
+          timeData: [],
+        },
+        pan2: {
+          data: [],
+          timeData: [],
+        },
+        pan3: {
+          data: [],
+          timeData: [],
+        },
+        pan4: {
+          data: [],
+          timeData: [],
+        },
+        pan5: {
+          data: [],
+          timeData: [],
+        },
+      },
+      string3: {
+        max: 0,
+        min: 0,
+        timeMax: "",
+        PanMax: "",
+        pan1: {
+          data: [],
+          timeData: [],
+        },
+        pan2: {
+          data: [],
+          timeData: [],
+        },
+        pan3: {
+          data: [],
+          timeData: [],
+        },
+        pan4: {
+          data: [],
+          timeData: [],
+        },
+        pan5: {
+          data: [],
+          timeData: [],
+        },
+      },
+      string4: {
+        max: 0,
+        min: 0,
+        timeMax: "",
+        PanMax: "",
+        pan1: {
+          data: [],
+          timeData: [],
+        },
+        pan2: {
+          data: [],
+          timeData: [],
+        },
+        pan3: {
+          data: [],
+          timeData: [],
+        },
+        pan4: {
+          data: [],
+          timeData: [],
+        },
+        pan5: {
+          data: [],
+          timeData: [],
+        },
+      },
     }
-    // const defaultData = data
+  }
 
-    async function aquisitionIntervalle() {
-      setInterval(() => {
-        getCSV()
-        const date = new Date()
-        currentControleDate = `${date.getDate()}-${date.getMonth()+1}-${date.getFullYear()}`
-        if(controleDate != currentControleDate) {
-          // resetData()
+  async function aquisitionIntervalle() {
+    setInterval(() => {
+      getCSV()
+      const current = new Date()
+      let currentControleDate = `${current.getDate()}-${current.getMonth() + 1}-${current.getFullYear()}`
+      
+      if (controleDate != currentControleDate) {
+        setTimeout(() => {
           window.location.reload(1)
-          controleDate = currentControleDate
-        }
-      }, 1500); // 300000 pour 15 minutes
-    }
-    
+        }, 1000);
+      }
+    }, 5000); // 300000 pour 15 minutes
+  }
+  
+
   async function getCSV() {
-      const jsonFile = new Promise((resolve, reject) => {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open('GET', `http://${ip}:5000/getCSV`, true);
-        xmlhttp.onreadystatechange = function () {
-          if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-            resolve(xmlhttp.responseText)
-          else if (xmlhttp.readyState == 4 && xmlhttp.status == 0) {
-            resolve('CORS request did not succeed')
-          } else
-            console.log("Error loading page")
-        };
-        xmlhttp.send();
-      });
+    const jsonFile = new Promise((resolve, reject) => {
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.open('GET', `http://${ip}:5000/getCSV`, true);
+      xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+          resolve(xmlhttp.responseText)
+        else if (xmlhttp.readyState == 4 && xmlhttp.status == 0) {
+          resolve('CORS request did not succeed')
+        } else
+          console.log("Error loading page")
+      };
+      xmlhttp.send();
+    });
     const result = await jsonFile.then((value) => {
       return value
     })
@@ -247,11 +245,11 @@
         case '31': {
           let signeTemp = parseInt(arg[4])
           let temp = parseInt(arg[6])
-          if(!data.temp.timeData.includes(time)){
-            if(signeTemp == 1 ) {
+          if (!data.temp.timeData.includes(time)) {
+            if (signeTemp == 1) {
               temp = -temp
             }
-            
+
             data.temp.timeData.push(time)
             data.temp.data.push(temp)
           }
@@ -261,13 +259,13 @@
         case '51': { // mesure de l'irradiance
           let irradiancePfort = parseInt(arg[4])
           let irradiancePfaible = parseInt(arg[6])
-          if(!data.irradiance.timeData.includes(time)){
-            let irradiance = (irradiancePfort*256+irradiancePfaible)/10
-            if(data.irradiance.max < irradiance) {
+          if (!data.irradiance.timeData.includes(time)) {
+            let irradiance = (irradiancePfort * 256 + irradiancePfaible) / 10
+            if (data.irradiance.max < irradiance) {
               data.irradiance.max = irradiance
               data.irradiance.timeMax = time
             }
-            if(data.irradiance.min > irradiance) {
+            if (data.irradiance.min > irradiance) {
               data.irradiance.min = irradiance
             }
             data.irradiance.timeData.push(time)
@@ -275,52 +273,45 @@
           }
           break;
         }
-      
+
 
         case '6': { // mesure des tensions des panneaux
           const numString = parseInt(arg[4])
           const numPan = parseInt(arg[6])
           const tensionPanPfort = parseInt(arg[8])
           const tensionPanPfaible = parseInt(arg[10])
-          const tension = (256*tensionPanPfort+tensionPanPfaible)/100
+          const tension = (256 * tensionPanPfort + tensionPanPfaible) / 100
 
           // mise en cache des tensions et des temps par string
-          cache['string'+numString].tensions[numPan] = tension
-          cache['string'+numString].tempsPanneaux[numPan] = time
+          cache['string' + numString].tensions[numPan] = tension
+          cache['string' + numString].tempsPanneaux[numPan] = time
 
           // parcour du cache
           for (let s = 1; s < 5; s++) {
             // variable qui va permettre de vérifier si le string est complet
-            let stringFinished = true 
+            let stringFinished = true
             // check si toutes les tensions du string sont présentes 
             for (let p = 1; p < 6; p++) {
-              if (cache['string'+s].tensions[p] == 0) stringFinished = false
+              if (cache['string' + s].tensions[p] == 0) stringFinished = false
             }
 
             // traitement du string si complet 
-            if(stringFinished) {
+            if (stringFinished) {
               let previous = 0
               for (let p = 1; p < 6; p++) {
-                
-                cache['string'+s].tensions[p] = cache['string'+s].tensions[p] - previous
-                previous += cache['string'+s].tensions[p]
+
+                cache['string' + s].tensions[p] = cache['string' + s].tensions[p] - previous
+                previous += cache['string' + s].tensions[p]
 
                 // sauvegarde si pas déjà compris das la base de données
-                if (!data.panneaux['string'+s]['pan'+p].timeData.includes(cache['string'+s].tempsPanneaux[p])) {
+                if (!data.panneaux['string' + s]['pan' + p].timeData.includes(cache['string' + s].tempsPanneaux[p])) {
                   // sauvegarde des données dans la base de données
-                  data.panneaux['string'+s]['pan'+p].data.push(cache['string'+s].tensions[p])
-                  data.panneaux['string'+s]['pan'+p].timeData.push(cache['string'+s].tempsPanneaux[p])  
-
-                  // //detecion du max
-                  // if (data.panneaux.max < tension) {
-                  //   data.panneaux['string'+s].max = tension
-                  //   data.panneaux['string'+s].timeMax = time
-                  // }
-
+                  data.panneaux['string' + s]['pan' + p].data.push(cache['string' + s].tensions[p])
+                  data.panneaux['string' + s]['pan' + p].timeData.push(cache['string' + s].tempsPanneaux[p])
                 }
                 // remise à zero du cache
-                cache['string'+s].tensions[p] = 0
-                cache['string'+s].tempsPanneaux[p] = ''
+                cache['string' + s].tensions[p] = 0
+                cache['string' + s].tempsPanneaux[p] = ''
               }
             }
           }
@@ -332,13 +323,13 @@
       }
     })
 
-    //fin de conversion des données
+    // fin de conversion des données
 
-    //traitement des données, envoie graph
-    //traitment des données d'irradiance
+    // traitement des données, envoie graph
+    // traitment des données d'irradiance
     await traitementIrradiance()
 
-    //traitement des données de tension
+    // traitement des données de tension
     await traitementTensionString()
 
     return
@@ -348,53 +339,53 @@
   async function traitementIrradiance() {
     let lastDate = ''
     let oldData = 0, first = true
-    
+
     let irradianceElement = document.getElementById('irradiance')
     let irradianceTxt = document.getElementById("irradianceMaxMin")
 
     let legend = `Irradiance W/m²\nMax:${data.irradiance.max.toFixed(2)} - Min: ${data.irradiance.min.toFixed(2)}`
     irradianceTxt.innerText = legend
-  
+
     irradianceElement.innerHTML = null
-    
+
     data.irradiance.data.forEach(value => {
 
-      if(first) {
+      if (first) {
         first = false
         oldData = value
       }
-      var dataChild = `<tr>\n<td style="--start: ${oldData/(data.irradiance.max+5)}; --size: ${value/(data.irradiance.max+5)}; --color: red;"> <span class="data"> ${value} </span> </td>\n </tr>`
-      irradianceElement.innerHTML+= dataChild
+      var dataChild = `<tr>\n<td style="--start: ${oldData / (data.irradiance.max + 5)}; --size: ${value / (data.irradiance.max + 5)}; --color: red;"> <span class="data"> ${value} </span> </td>\n </tr>`
+      irradianceElement.innerHTML += dataChild
       oldData = data
       oldData = value
-      
+
     });
 
-    document.getElementById("lastUpdate").innerHTML = `Dernière mise à jour à ${data.irradiance.timeData[data.irradiance.timeData.length-1]}`
+    document.getElementById("lastUpdate").innerHTML = `Dernière mise à jour à ${data.irradiance.timeData[data.irradiance.timeData.length - 1]}`
     return
   }
-  
+
   async function traitementTensionString() {
-    const type =`<tr>
+    const type = `<tr>
       <td style="--start:0.1; --size:0.3;"><span class="data"> 30 </span></td>
       <td style="--start:0.6; --size:0.4;"><span class="data"> 40 </span></td>
       <td style="--start:0.8; --size:0.7;"><span class="data"> 70 </span></td>
       <td style="--start:0.7; --size:0.9;"><span class="data"> 100 </span></td>
     </tr>`
-  
+
     //récupération des données
     let oldPanData = {
-      1:undefined,
-      2:undefined,
-      3:undefined,
-      4:undefined,
-      5:undefined
-    } , currenPanData = {
-      1:0,
-      2:0,
-      3:0,
-      4:0,
-      5:0
+      1: undefined,
+      2: undefined,
+      3: undefined,
+      4: undefined,
+      5: undefined
+    }, currenPanData = {
+      1: 0,
+      2: 0,
+      3: 0,
+      4: 0,
+      5: 0
     }
     // console.log(data.panneaux.string1)
 
@@ -403,45 +394,44 @@
     let String1ElementTxt = document.getElementById("string1txt")
 
     String1Element.innerHTML = null
-    
+
     for (let dataNbr = 0; dataNbr < data.panneaux.string1.pan1.data.length; dataNbr++) {
-      for(let p = 1; p < 6; p++) {
+      for (let p = 1; p < 6; p++) {
         // récupération des données du string 1, tracer l'évolution de tous les panneaux d'un même string
         if (oldPanData[p] == undefined) {
-          oldPanData[p] = data.panneaux.string1['pan'+p].data[dataNbr]
+          oldPanData[p] = data.panneaux.string1['pan' + p].data[dataNbr]
         } else {
           oldPanData[p] = currenPanData[p]
         }
-        currenPanData[p] = data.panneaux.string1['pan'+p].data[dataNbr]
-        if(data.panneaux.string1.max < currenPanData[p]){
+        currenPanData[p] = data.panneaux.string1['pan' + p].data[dataNbr]
+        if (data.panneaux.string1.max < currenPanData[p]) {
           data.panneaux.string1.max = currenPanData[p]
-          data.panneaux.string1.timeMax = data.panneaux.string1['pan'+p].timeData[dataNbr]
+          data.panneaux.string1.timeMax = data.panneaux.string1['pan' + p].timeData[dataNbr]
         }
 
-        if(data.panneaux.string1.min > currenPanData[p]){
+        if (data.panneaux.string1.min > currenPanData[p]) {
           data.panneaux.string1.min = currenPanData[p]
         }
       }
-      
-      //console.log(`from ${oldPanData[1]} to ${currenPanData[1]}`)
+
       let stringTXT = `Maximum: ${data.panneaux.string1.max} V à ${data.panneaux.string1.timeMax}\nPanneau 1: ${currenPanData[1].toFixed(2)}V\nPanneau 2: ${currenPanData[2].toFixed(2)}V\nPanneau 3: ${currenPanData[3].toFixed(2)}V\nPanneau 4: ${currenPanData[4].toFixed(2)}V\nPanneau 5: ${currenPanData[5].toFixed(2)}V\n`
       let test = `<ul class="charts-css legend legend-line">\n<li>Panneau 1 ${currenPanData[1].toFixed(2)} V</li>\n<li>Panneau 2 ${currenPanData[2].toFixed(2)} V</li>\n<li>Panneau 3 ${currenPanData[3].toFixed(2)} V</li>\n<li>Panneau 4 ${currenPanData[4].toFixed(2)} V</li>\n<li>Panneau 5 ${currenPanData[5].toFixed(2)} V</li>\n</ul>`
-      
+
       String1ElementTxt.innerHTML = test
       document.getElementById("s1MaxMin").innerText = `Tension V\nMax:${data.panneaux.string1.max.toFixed(2)} - Min: ${data.panneaux.string1.min.toFixed(2)}`
 
-      
+
       // tracer
       let graph = `<tr>\n
-        \n<td style="--start:${oldPanData[1]/(data.panneaux.string1.max+1)}; --size:${currenPanData[1]/(data.panneaux.string1.max+1)};"><span class="data"> ${currenPanData[1]} </span></td>
-        \n<td style="--start:${oldPanData[2]/(data.panneaux.string1.max+1)}; --size:${currenPanData[2]/(data.panneaux.string1.max+1)};"><span class="data"> ${currenPanData[2]} </span></td>
-        \n<td style="--start:${oldPanData[3]/(data.panneaux.string1.max+1)}; --size:${currenPanData[3]/(data.panneaux.string1.max+1)};"><span class="data"> ${currenPanData[3]} </span></td>
-        \n<td style="--start:${oldPanData[4]/(data.panneaux.string1.max+1)}; --size:${currenPanData[4]/(data.panneaux.string1.max+1)};"><span class="data"> ${currenPanData[4]} </span></td>
-        \n<td style="--start:${oldPanData[5]/(data.panneaux.string1.max+1)}; --size:${currenPanData[5]/(data.panneaux.string1.max+1)};"><span class="data"> ${currenPanData[5]} </span></td>
+        \n<td style="--start:${oldPanData[1] / (data.panneaux.string1.max + 1)}; --size:${currenPanData[1] / (data.panneaux.string1.max + 1)};"><span class="data"> ${currenPanData[1]} </span></td>
+        \n<td style="--start:${oldPanData[2] / (data.panneaux.string1.max + 1)}; --size:${currenPanData[2] / (data.panneaux.string1.max + 1)};"><span class="data"> ${currenPanData[2]} </span></td>
+        \n<td style="--start:${oldPanData[3] / (data.panneaux.string1.max + 1)}; --size:${currenPanData[3] / (data.panneaux.string1.max + 1)};"><span class="data"> ${currenPanData[3]} </span></td>
+        \n<td style="--start:${oldPanData[4] / (data.panneaux.string1.max + 1)}; --size:${currenPanData[4] / (data.panneaux.string1.max + 1)};"><span class="data"> ${currenPanData[4]} </span></td>
+        \n<td style="--start:${oldPanData[5] / (data.panneaux.string1.max + 1)}; --size:${currenPanData[5] / (data.panneaux.string1.max + 1)};"><span class="data"> ${currenPanData[5]} </span></td>
         \n</tr>`
-      
 
-      String1Element.innerHTML += graph    
+
+      String1Element.innerHTML += graph
     }
 
 
@@ -451,40 +441,39 @@
     let String2ElementTxt = document.getElementById("string2txt")
 
     String2Element.innerHTML = null
-    
+
     for (let dataNbr = 0; dataNbr < data.panneaux.string2.pan1.data.length; dataNbr++) {
-      for(let p = 1; p < 6; p++) {
+      for (let p = 1; p < 6; p++) {
         // récupération des données du string 1, tracer l'évolution de tous les panneaux d'un même string
         if (oldPanData[p] == 0) {
-          oldPanData[p] = data.panneaux.string2['pan'+p].data[dataNbr]
+          oldPanData[p] = data.panneaux.string2['pan' + p].data[dataNbr]
         } else {
           oldPanData[p] = currenPanData[p]
         }
-        currenPanData[p] = data.panneaux.string2['pan'+p].data[dataNbr]
-        if(data.panneaux.string2.max < currenPanData[p]){
+        currenPanData[p] = data.panneaux.string2['pan' + p].data[dataNbr]
+        if (data.panneaux.string2.max < currenPanData[p]) {
           data.panneaux.string2.max = currenPanData[p]
-          data.panneaux.string2.timeMax = data.panneaux.string2['pan'+p].timeData[dataNbr]
+          data.panneaux.string2.timeMax = data.panneaux.string2['pan' + p].timeData[dataNbr]
         }
-        if(data.panneaux.string2.min > currenPanData[p]){
+        if (data.panneaux.string2.min > currenPanData[p]) {
           data.panneaux.string2.min = currenPanData[p]
         }
       }
-      
-      //console.log(`from ${oldPanData[1]} to ${currenPanData[1]}`)
+
       let stringTXT = `\nMaximum: ${data.panneaux.string2.max} V à ${data.panneaux.string2.timeMax}\nPanneau 1: ${currenPanData[1].toFixed(2)}V\nPanneau 2: ${currenPanData[2].toFixed(2)}V\nPanneau 3: ${currenPanData[3].toFixed(2)}V\nPanneau 4: ${currenPanData[4].toFixed(2)}V\nPanneau 5: ${currenPanData[5].toFixed(2)}V\n`
       let test = `<ul class="charts-css legend legend-line">\n<li>Panneau 1 ${currenPanData[1].toFixed(2)} V</li>\n<li>Panneau 2 ${currenPanData[2].toFixed(2)} V</li>\n<li>Panneau 3 ${currenPanData[3].toFixed(2)} V</li>\n<li>Panneau 4 ${currenPanData[4].toFixed(2)} V</li>\n<li>Panneau 5 ${currenPanData[5].toFixed(2)} V</li>\n</ul>`
       document.getElementById("s2MaxMin").innerText = `Tension V\nMax:${data.panneaux.string2.max.toFixed(2)} - Min: ${data.panneaux.string2.min.toFixed(2)}`
       String2ElementTxt.innerHTML = test
-      
+
       // tracer
       let graph = `<tr>\n
-        \n<td style="--start:${oldPanData[1]/(data.panneaux.string2.max+1)}; --size:${currenPanData[1]/(data.panneaux.string2.max+1)};"><span class="data"> ${currenPanData[1]} </span></td>
-        \n<td style="--start:${oldPanData[2]/(data.panneaux.string2.max+1)}; --size:${currenPanData[2]/(data.panneaux.string2.max+1)};"><span class="data"> ${currenPanData[2]} </span></td>
-        \n<td style="--start:${oldPanData[3]/(data.panneaux.string2.max+1)}; --size:${currenPanData[3]/(data.panneaux.string2.max+1)};"><span class="data"> ${currenPanData[3]} </span></td>
-        \n<td style="--start:${oldPanData[4]/(data.panneaux.string2.max+1)}; --size:${currenPanData[4]/(data.panneaux.string2.max+1)};"><span class="data"> ${currenPanData[4]} </span></td>
-        \n<td style="--start:${oldPanData[5]/(data.panneaux.string2.max+1)}; --size:${currenPanData[5]/(data.panneaux.string2.max+1)};"><span class="data"> ${currenPanData[5]} </span></td>
+        \n<td style="--start:${oldPanData[1] / (data.panneaux.string2.max + 1)}; --size:${currenPanData[1] / (data.panneaux.string2.max + 1)};"><span class="data"> ${currenPanData[1]} </span></td>
+        \n<td style="--start:${oldPanData[2] / (data.panneaux.string2.max + 1)}; --size:${currenPanData[2] / (data.panneaux.string2.max + 1)};"><span class="data"> ${currenPanData[2]} </span></td>
+        \n<td style="--start:${oldPanData[3] / (data.panneaux.string2.max + 1)}; --size:${currenPanData[3] / (data.panneaux.string2.max + 1)};"><span class="data"> ${currenPanData[3]} </span></td>
+        \n<td style="--start:${oldPanData[4] / (data.panneaux.string2.max + 1)}; --size:${currenPanData[4] / (data.panneaux.string2.max + 1)};"><span class="data"> ${currenPanData[4]} </span></td>
+        \n<td style="--start:${oldPanData[5] / (data.panneaux.string2.max + 1)}; --size:${currenPanData[5] / (data.panneaux.string2.max + 1)};"><span class="data"> ${currenPanData[5]} </span></td>
         \n</tr>`
-      String2Element.innerHTML+= graph    
+      String2Element.innerHTML += graph
     }
 
     //string 3
@@ -492,42 +481,41 @@
     let String3ElementTxt = document.getElementById("string3txt")
 
     String3Element.innerHTML = null
-    
+
     for (let dataNbr = 0; dataNbr < data.panneaux.string3.pan1.data.length; dataNbr++) {
-      for(let p = 1; p < 6; p++) {
+      for (let p = 1; p < 6; p++) {
         // récupération des données du string 1, tracer l'évolution de tous les panneaux d'un même string
         if (oldPanData[p] == 0) {
-          oldPanData[p] = data.panneaux.string3['pan'+p].data[dataNbr]
+          oldPanData[p] = data.panneaux.string3['pan' + p].data[dataNbr]
         } else {
           oldPanData[p] = currenPanData[p]
         }
-        currenPanData[p] = data.panneaux.string3['pan'+p].data[dataNbr]
-        if(data.panneaux.string3.max < currenPanData[p]){
+        currenPanData[p] = data.panneaux.string3['pan' + p].data[dataNbr]
+        if (data.panneaux.string3.max < currenPanData[p]) {
           data.panneaux.string3.max = currenPanData[p]
-          data.panneaux.string3.timeMax = data.panneaux.string3['pan'+p].timeData[dataNbr]
+          data.panneaux.string3.timeMax = data.panneaux.string3['pan' + p].timeData[dataNbr]
         }
 
-        if(data.panneaux.string3.min > currenPanData[p]){
+        if (data.panneaux.string3.min > currenPanData[p]) {
           data.panneaux.string3.min = currenPanData[p]
         }
       }
-      
-      //console.log(`from ${oldPanData[1]} to ${currenPanData[1]}`)
+
       let stringTXT = `\nMaximum: ${data.panneaux.string3.max} V à ${data.panneaux.string3.timeMax}\nPanneau 1: ${currenPanData[1].toFixed(2)}V\nPanneau 2: ${currenPanData[2].toFixed(2)}V\nPanneau 3: ${currenPanData[3].toFixed(2)}V\nPanneau 4: ${currenPanData[4].toFixed(2)}V\nPanneau 5: ${currenPanData[5].toFixed(2)}V\n`
       let test = `<ul class="charts-css legend legend-line">\n<li>Panneau 1 ${currenPanData[1].toFixed(2)} V</li>\n<li>Panneau 2 ${currenPanData[2].toFixed(2)} V</li>\n<li>Panneau 3 ${currenPanData[3].toFixed(2)} V</li>\n<li>Panneau 4 ${currenPanData[4].toFixed(2)} V</li>\n<li>Panneau 5 ${currenPanData[5].toFixed(2)} V</li>\n</ul>`
       document.getElementById("s3MaxMin").innerText = `Tension V\nMax:${data.panneaux.string3.max.toFixed(2)} - Min: ${data.panneaux.string3.min.toFixed(2)}`
-      
+
       String3ElementTxt.innerHTML = test
-      
+
       // tracer
       let graph = `<tr>\n
-        \n<td style="--start:${oldPanData[1]/(data.panneaux.string3.max+1)}; --size:${currenPanData[1]/(data.panneaux.string3.max+1)};"><span class="data"> ${currenPanData[1]} </span></td>
-        \n<td style="--start:${oldPanData[2]/(data.panneaux.string3.max+1)}; --size:${currenPanData[2]/(data.panneaux.string3.max+1)};"><span class="data"> ${currenPanData[2]} </span></td>
-        \n<td style="--start:${oldPanData[3]/(data.panneaux.string3.max+1)}; --size:${currenPanData[3]/(data.panneaux.string3.max+1)};"><span class="data"> ${currenPanData[3]} </span></td>
-        \n<td style="--start:${oldPanData[4]/(data.panneaux.string3.max+1)}; --size:${currenPanData[4]/(data.panneaux.string3.max+1)};"><span class="data"> ${currenPanData[4]} </span></td>
-        \n<td style="--start:${oldPanData[5]/(data.panneaux.string3.max+1)}; --size:${currenPanData[5]/(data.panneaux.string3.max+1)};"><span class="data"> ${currenPanData[5]} </span></td>
+        \n<td style="--start:${oldPanData[1] / (data.panneaux.string3.max + 1)}; --size:${currenPanData[1] / (data.panneaux.string3.max + 1)};"><span class="data"> ${currenPanData[1]} </span></td>
+        \n<td style="--start:${oldPanData[2] / (data.panneaux.string3.max + 1)}; --size:${currenPanData[2] / (data.panneaux.string3.max + 1)};"><span class="data"> ${currenPanData[2]} </span></td>
+        \n<td style="--start:${oldPanData[3] / (data.panneaux.string3.max + 1)}; --size:${currenPanData[3] / (data.panneaux.string3.max + 1)};"><span class="data"> ${currenPanData[3]} </span></td>
+        \n<td style="--start:${oldPanData[4] / (data.panneaux.string3.max + 1)}; --size:${currenPanData[4] / (data.panneaux.string3.max + 1)};"><span class="data"> ${currenPanData[4]} </span></td>
+        \n<td style="--start:${oldPanData[5] / (data.panneaux.string3.max + 1)}; --size:${currenPanData[5] / (data.panneaux.string3.max + 1)};"><span class="data"> ${currenPanData[5]} </span></td>
         \n</tr>`
-      String3Element.innerHTML+= graph    
+      String3Element.innerHTML += graph
     }
 
 
@@ -536,163 +524,163 @@
     let String4ElementTxt = document.getElementById("string4txt")
 
     String4Element.innerHTML = null
-    
+
     for (let dataNbr = 0; dataNbr < data.panneaux.string4.pan1.data.length; dataNbr++) {
-      for(let p = 1; p < 6; p++) {
+      for (let p = 1; p < 6; p++) {
         // récupération des données du string 1, tracer l'évolution de tous les panneaux d'un même string
         if (oldPanData[p] == 0) {
-          oldPanData[p] = data.panneaux.string4['pan'+p].data[dataNbr]
+          oldPanData[p] = data.panneaux.string4['pan' + p].data[dataNbr]
         } else {
           oldPanData[p] = currenPanData[p]
         }
-        currenPanData[p] = data.panneaux.string4['pan'+p].data[dataNbr]
-        if(data.panneaux.string4.max < currenPanData[p]){
+        currenPanData[p] = data.panneaux.string4['pan' + p].data[dataNbr]
+        if (data.panneaux.string4.max < currenPanData[p]) {
           data.panneaux.string4.max = currenPanData[p]
-          data.panneaux.string4.timeMax = data.panneaux.string4['pan'+p].timeData[dataNbr]
+          data.panneaux.string4.timeMax = data.panneaux.string4['pan' + p].timeData[dataNbr]
         }
-        if(data.panneaux.string4.min > currenPanData[p]){
+        if (data.panneaux.string4.min > currenPanData[p]) {
           data.panneaux.string4.min = currenPanData[p]
         }
       }
-      
-      //console.log(`from ${oldPanData[1]} to ${currenPanData[1]}`)
+
       let stringTXT = `\nMaximum: ${data.panneaux.string4.max} V à ${data.panneaux.string4.timeMax}\nPanneau 1: ${currenPanData[1].toFixed(2)}V\nPanneau 2: ${currenPanData[2].toFixed(2)}V\nPanneau 3: ${currenPanData[3].toFixed(2)}V\nPanneau 4: ${currenPanData[4].toFixed(2)}V\nPanneau 5: ${currenPanData[5].toFixed(2)}V\n`
       let test = `<ul class="charts-css legend legend-line">\n<li>Panneau 1 ${currenPanData[1].toFixed(2)} V</li>\n<li>Panneau 2 ${currenPanData[2].toFixed(2)} V</li>\n<li>Panneau 3 ${currenPanData[3].toFixed(2)} V</li>\n<li>Panneau 4 ${currenPanData[4].toFixed(2)} V</li>\n<li>Panneau 5 ${currenPanData[5].toFixed(2)} V</li>\n</ul>`
-      
+
       document.getElementById("s4MaxMin").innerText = `Tension V\nMax:${data.panneaux.string4.max.toFixed(2)} - Min: ${data.panneaux.string4.min.toFixed(2)}`
       String4ElementTxt.innerHTML = test
-      
+
       // tracer
       let graph = `<tr>\n
-        \n<td style="--start:${oldPanData[1]/(data.panneaux.string4.max+1)}; --size:${currenPanData[1]/(data.panneaux.string4.max+1)};"><span class="data"> ${currenPanData[1]} </span></td>
-        \n<td style="--start:${oldPanData[2]/(data.panneaux.string4.max+1)}; --size:${currenPanData[2]/(data.panneaux.string4.max+1)};"><span class="data"> ${currenPanData[2]} </span></td>
-        \n<td style="--start:${oldPanData[3]/(data.panneaux.string4.max+1)}; --size:${currenPanData[3]/(data.panneaux.string4.max+1)};"><span class="data"> ${currenPanData[3]} </span></td>
-        \n<td style="--start:${oldPanData[4]/(data.panneaux.string4.max+1)}; --size:${currenPanData[4]/(data.panneaux.string4.max+1)};"><span class="data"> ${currenPanData[4]} </span></td>
-        \n<td style="--start:${oldPanData[5]/(data.panneaux.string4.max+1)}; --size:${currenPanData[5]/(data.panneaux.string4.max+1)};"><span class="data"> ${currenPanData[5]} </span></td>
+        \n<td style="--start:${oldPanData[1] / (data.panneaux.string4.max + 1)}; --size:${currenPanData[1] / (data.panneaux.string4.max + 1)};"><span class="data"> ${currenPanData[1]} </span></td>
+        \n<td style="--start:${oldPanData[2] / (data.panneaux.string4.max + 1)}; --size:${currenPanData[2] / (data.panneaux.string4.max + 1)};"><span class="data"> ${currenPanData[2]} </span></td>
+        \n<td style="--start:${oldPanData[3] / (data.panneaux.string4.max + 1)}; --size:${currenPanData[3] / (data.panneaux.string4.max + 1)};"><span class="data"> ${currenPanData[3]} </span></td>
+        \n<td style="--start:${oldPanData[4] / (data.panneaux.string4.max + 1)}; --size:${currenPanData[4] / (data.panneaux.string4.max + 1)};"><span class="data"> ${currenPanData[4]} </span></td>
+        \n<td style="--start:${oldPanData[5] / (data.panneaux.string4.max + 1)}; --size:${currenPanData[5] / (data.panneaux.string4.max + 1)};"><span class="data"> ${currenPanData[5]} </span></td>
         \n</tr>`
-      String4Element.innerHTML+= graph    
+      String4Element.innerHTML += graph
     }
 
     return
   }
 </script>
-  <body onload="aquisitionIntervalle()" class="body">
-    <div class="hero bg-primary" style="height: 1080px;">
-      <div class="hero-body">
-        <img src="./images/iut_logo_2LAOS.png" class="logo" alt="">
-        <!-- <button class="btn" onclick="getCSV()">Demande de test</button>   -->
-        <h5 id="lastUpdate"></h5>
-        <div class="container">
-          <div class="columns">
-            <div class="column test">
-              <h6>String 1</h6>
-              <div id="string1txt" class="first-legend legend"></div>
-              <h6>String 2</h6>
-              <div id="string2txt" class="legend"></div>
-              <h6>String 3</h6>
-              <div id="string3txt" class="legend"></div>
-              <h6>String 4</h6>
-              <div id="string4txt" class="legend"></div>
-            </div>
+
+<body onload="aquisitionIntervalle()" class="body">
+  <div class="hero bg-primary" style="height: 1080px;">
+    <div class="hero-body">
+      <img src="./images/iut_logo_2LAOS.png" class="logo" alt="">
+      <h5 id="lastUpdate"></h5>
+      <div class="container">
+        <div class="columns">
+          <div class="column test">
+            <h6>String 1</h6>
+            <div id="string1txt" class="first-legend legend"></div>
+            <h6>String 2</h6>
+            <div id="string2txt" class="legend"></div>
+            <h6>String 3</h6>
+            <div id="string3txt" class="legend"></div>
+            <h6>String 4</h6>
+            <div id="string4txt" class="legend"></div>
           </div>
         </div>
       </div>
     </div>
-    
-    <div class="container">
-      <div class="columns">
-        <div class="column test">
-          
-          <div class="container">
-            <div class="first customContain columns outlines">
-              <div class="column outlines">
-                <div id="data-axes">
-                  <table class="charts-css hide-data  show-labels show-heading line my-chart.line show-primary-axis">
-                    <caption> Évolution de l'irradiance en fonction du temps </caption>
-                    <tbody id="irradiance">
-                      
-                    </tbody>
-                  </table>
-                  <div class="data-axis" id="irradianceMaxMin">
-                  </div>
+  </div>
+
+  <div class="container">
+    <div class="columns">
+      <div class="column test">
+
+        <div class="container">
+          <div class="first customContain columns outlines">
+            <div class="column outlines">
+              <div id="data-axes">
+                <table class="charts-css hide-data  show-labels show-heading line my-chart.line show-primary-axis">
+                  <caption> Évolution de l'irradiance en fonction du temps </caption>
+                  <tbody id="irradiance">
+
+                  </tbody>
+                </table>
+                <div class="data-axis" id="irradianceMaxMin">
                 </div>
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="container firstString">
-            <div class="columns outlines">
-              <div class="column outlines">
-                <div id="data-axes">
-                  <table class="charts-css hide-data  line show-labels show-heading line my-chart.line multiple show-primary-axis">
-                    <caption> Évolution des tensions en fonction du temps </caption>
-                    <tbody id="string1">
-                      
-                    </tbody>
-                  </table>
-                  <div class="data-axis" id="s1MaxMin">
-                  </div>
+        <div class="container firstString">
+          <div class="columns outlines">
+            <div class="column outlines">
+              <div id="data-axes">
+                <table
+                  class="charts-css hide-data  line show-labels show-heading line my-chart.line multiple show-primary-axis">
+                  <caption> Évolution des tensions en fonction du temps </caption>
+                  <tbody id="string1">
+
+                  </tbody>
+                </table>
+                <div class="data-axis" id="s1MaxMin">
                 </div>
-
               </div>
+
             </div>
           </div>
+        </div>
 
-          <div class="container">
-            <div class="columns outlines">
-              <div class="column outlines">
-                <div id="data-axes">
-                  <table class="charts-css hide-data  line show-labels show-heading line my-chart.line multiple show-primary-axis">
-                    <tbody id="string2">
-                      
-                    </tbody>
-                  </table>
-                  <div class="data-axis" id="s2MaxMin">
-                  </div>
+        <div class="container">
+          <div class="columns outlines">
+            <div class="column outlines">
+              <div id="data-axes">
+                <table
+                  class="charts-css hide-data  line show-labels show-heading line my-chart.line multiple show-primary-axis">
+                  <tbody id="string2">
+
+                  </tbody>
+                </table>
+                <div class="data-axis" id="s2MaxMin">
                 </div>
-
               </div>
+
             </div>
           </div>
+        </div>
 
-          <div class="container">
-            <div class="columns outlines">
-              <div class="column outlines">
-                <div id="data-axes">
-                  <table class="charts-css hide-data  line show-labels show-heading line my-chart.line multiple show-primary-axis">
-                    <tbody id="string3">
-                      
-                    </tbody>
-                  </table>
-                  <div class="data-axis" id="s3MaxMin">
-                  </div>
+        <div class="container">
+          <div class="columns outlines">
+            <div class="column outlines">
+              <div id="data-axes">
+                <table
+                  class="charts-css hide-data  line show-labels show-heading line my-chart.line multiple show-primary-axis">
+                  <tbody id="string3">
+
+                  </tbody>
+                </table>
+                <div class="data-axis" id="s3MaxMin">
                 </div>
-
               </div>
+
             </div>
           </div>
+        </div>
 
-          <div class="container">
-            <div class="columns outlines">
-              <div class="column outlines">
-                <div id="data-axes">
-                  <table class="charts-css hide-data  line show-labels show-heading line my-chart.line multiple show-primary-axis">
-                    <tbody id="string4">
-                      
-                    </tbody>
-                  </table>
-                  <div class="data-axis" id="s4MaxMin">
-                  </div>
+        <div class="container">
+          <div class="columns outlines">
+            <div class="column outlines">
+              <div id="data-axes">
+                <table
+                  class="charts-css hide-data  line show-labels show-heading line my-chart.line multiple show-primary-axis">
+                  <tbody id="string4">
+
+                  </tbody>
+                </table>
+                <div class="data-axis" id="s4MaxMin">
                 </div>
-
               </div>
+
             </div>
           </div>
-          
+        </div>
+
       </div>
     </div>
-
-
-    
-  </body>
+</body>
 </html>
