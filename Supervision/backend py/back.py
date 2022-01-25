@@ -18,6 +18,7 @@ dataPath = "Sauvegarde-DATA/bin/Debug/log_data/"
 def sendData():
     try:
         date = f"{datetime.datetime.now():%d_%m_%Y}"
+        # date = "31_12_2021"
         path = dataPath + date + ".csv"
         data = open(path, "r").read()
         response = app.response_class(

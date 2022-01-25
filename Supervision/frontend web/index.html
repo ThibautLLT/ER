@@ -11,18 +11,41 @@
 </head>
 <script>
   const ip = "192.168.179.241"
-  const date = new Date()
-  let controleDate = `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`
+  // const ip = "localhost"
 
   // permet de stocker l'intégralité d'une asquisiion de panneaux 
   const cache = {
+    current: {
+      1: null,
+      2: null,
+      3: null,
+      4: null,      
+    },
     string1: {
+      courant: {
+        lastCourant: null,
+        actuelle: 0,
+        data: [],
+        timeData: []
+      },
+      tension: {
+        lastTension: null,
+        actuelle: 0,
+        data: [],
+        timeData: []
+      },
+      puissance: {
+        lastPuissance: null,
+        actuelle: 0,
+        data: [],
+        timeData: []
+      },
       tensions: {
-        1: 0,
-        2: 0,
-        3: 0,
-        4: 0,
-        5: 0,
+        1: null,
+        2: null,
+        3: null,
+        4: null,
+        5: null,
       },
       tempsPanneaux: {
         1: '',
@@ -83,6 +106,23 @@
   }
 
   const data = {
+    abscisse: {
+      courant: [],
+      tension: [],
+      puissance: []
+    },
+    courant: {
+      data: [],
+      timeData: []
+    },
+    tension: {
+      data: [],
+      timeData: []
+    },
+    puissance: {
+      data: [],
+      timeData: []
+    },
     irradiance: {
       data: [],
       timeData: [],
@@ -91,11 +131,16 @@
       timeMax: "",
 
     },
-    panneaux: {
+    panneaux: {      
       max: 0,
       timeMax: "",
       PanMax: "",
       string1: {
+        courant: {
+        actuelle: 0,
+        data: [],
+        timeData: []
+      },
         max: 0,
         min: 0,
         timeMax: "",
@@ -122,6 +167,11 @@
         },
       },
       string2: {
+        courant: {
+        actuelle: 0,
+        data: [],
+        timeData: []
+      },
         max: 0,
         min: 0,
         timeMax: "",
@@ -148,6 +198,11 @@
         },
       },
       string3: {
+        courant: {
+        actuelle: 0,
+        data: [],
+        timeData: []
+      },
         max: 0,
         min: 0,
         timeMax: "",
@@ -174,6 +229,11 @@
         },
       },
       string4: {
+        courant: {
+        actuelle: 0,
+        data: [],
+        timeData: []
+      },
         max: 0,
         min: 0,
         timeMax: "",
@@ -203,17 +263,11 @@
   }
 
   async function aquisitionIntervalle() {
-    setInterval(() => {
-      getCSV()
-      const current = new Date()
-      let currentControleDate = `${current.getDate()}-${current.getMonth() + 1}-${current.getFullYear()}`
-      
-      if (controleDate != currentControleDate) {
-        setTimeout(() => {
-          window.location.reload(1)
-        }, 1000);
-      }
-    }, 5000); // 300000 pour 15 minutes
+    refreshAt(00, 15, 00)
+    getCSV()
+    // setInterval(() => {
+    //   getCSV()
+    // }, 5000); // 300000 pour 15 minutes
   }
   
 
@@ -282,20 +336,28 @@
           const tensionPanPfaible = parseInt(arg[10])
           const tension = (256 * tensionPanPfort + tensionPanPfaible) / 100
 
+
+          // si panneaux est le 5 alors mettre dans tension string
+          if(numString==1 && numPan == 5 && !data.tension.timeData.includes(time)) {
+            data.tension.data.push(tension)
+            data.tension.timeData.push(time)
+          }
+
           // mise en cache des tensions et des temps par string
           cache['string' + numString].tensions[numPan] = tension
           cache['string' + numString].tempsPanneaux[numPan] = time
-
           // parcour du cache
           for (let s = 1; s < 5; s++) {
             // variable qui va permettre de vérifier si le string est complet
             let stringFinished = true
             // check si toutes les tensions du string sont présentes 
             for (let p = 1; p < 6; p++) {
-              if (cache['string' + s].tensions[p] == 0) stringFinished = false
+              if (cache['string' + s].tensions[p] == null) {
+                stringFinished = false
+              }
             }
 
-            // traitement du string si complet 
+            // traitement du string si complet
             if (stringFinished) {
               let previous = 0
               for (let p = 1; p < 6; p++) {
@@ -310,14 +372,37 @@
                   data.panneaux['string' + s]['pan' + p].timeData.push(cache['string' + s].tempsPanneaux[p])
                 }
                 // remise à zero du cache
-                cache['string' + s].tensions[p] = 0
+                cache['string' + s].tensions[p] = null
                 cache['string' + s].tempsPanneaux[p] = ''
               }
+
             }
           }
 
           break
         }
+        case '7': { // mesure des courants des panneaux
+          const numString = parseInt(arg[4])
+          const courantPfort = parseInt(arg[6])
+          const courantPfaible = parseInt(arg[8])
+
+          const courant = (256 * courantPfort + courantPfaible) / 1000
+
+          if(data.courant.timeData.includes(time)) break
+          cache.current[numString] = courant
+          if(cache.current[1]!=null && cache.current[2]!=null && cache.current[3]!=null && cache.current[4]!=null) {
+            let totalCurrent = 0 
+            for (let i = 1; i < 5; i++) {
+              totalCurrent+= cache.current[i]
+              cache.current[i] = null
+            }
+            data.courant.data.push(totalCurrent)
+            data.courant.timeData.push(time)
+          }
+
+          break
+        }
+        
         default:
           break;
       }
@@ -330,11 +415,67 @@
     await traitementIrradiance()
 
     // traitement des données de tension
-    await traitementTensionString()
-
+    await traitementTensionString()    
+    await genPower()
+    
+    await createAbsisses(data.courant.timeData, data.abscisse.courant)
+    await createAbsisses(data.tension.timeData, data.tension.courant)
+    await createAbsisses(data.puissance.timeData, data.puissance.courant)
     return
   }
 
+
+  function refreshAt(hours, minutes, seconds) {
+    var now = new Date();
+    var then = new Date();
+
+    if(now.getHours() > hours ||
+       (now.getHours() == hours && now.getMinutes() > minutes) ||
+        now.getHours() == hours && now.getMinutes() == minutes && now.getSeconds() >= seconds) {
+        then.setDate(now.getDate() + 1);
+    }
+    then.setHours(hours);
+    then.setMinutes(minutes);
+    then.setSeconds(seconds);
+
+    var timeout = (then.getTime() - now.getTime());
+    setTimeout(function() { window.location.reload(true); }, timeout);
+  } 
+
+
+  async function genPower(){
+    let i, heure
+
+    data.puissance.timeData = []
+    data.puissance.Data = []
+
+    if(data.tension.data.length <= data.courant.data.length) {
+      i = data.tension.data.length
+      heure = data.tension.timeData
+    } else {
+      i = data.courant.data.length
+      heure = data.courant.timeData
+    }
+    //calcul de la puissance:
+    for (let index = 0; index < i; index++){
+      console.log(data.tension.data[index]*data.courant.data[index])
+      data.puissance.data.push(data.tension.data[index]*data.courant.data[index])
+      data.puissance.timeData.push(heure[index])
+    }
+  }
+
+
+  async function createAbsisses(tabDataTime, tabAbs) { // permet de générer les abscisses
+    tabAbs = []
+    tabDataTime.forEach(h => {
+      let heure = h.split(":")[0]+"h"
+      if(!tabAbs.includes(heure)){
+        tabAbs.push(heure)
+      } else {
+        tabAbs.push("")
+      }
+    })
+  }
 
   async function traitementIrradiance() {
     let lastDate = ''
