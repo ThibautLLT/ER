@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="./donut.css">
+  <link rel="stylesheet" href="./titre.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+
+
+  <!-- https://themes-pixeden.com/font-demos/the-icons-set/weather/documentation.html -->
+  <link rel="stylesheet" href="path/to/pe-icon-set-weather/css/pe-icon-set-weather.css">
+  <link rel="stylesheet" href="./Weather-icon-set-font-PIXEDEN-v-1-0-0-PIXEDEN/pe-icon-set-weather/css/helper.css">
+  <link rel="stylesheet"
+    href="./Weather-icon-set-font-PIXEDEN-v-1-0-0-PIXEDEN/pe-icon-set-weather/css/pe-icon-set-weather.css">
+
+
+  <title>Monitoring IUT de Cachan</title>
+</head>
+
+<!-- meteo -->
+<script>
+  var weather = $.getJSON('https://api.openweathermap.org/data/2.5/find?q=Cachan&units=metric&appid=c02f87a1bfe000a9d384144576f3b269');
+  var iconUrl = "http://openweathermap.org/img/w/";
+  var zeroDegreeHeight = 71;
+
+
+
+
+
+  weather.done(function (data) {
+    var currentTempParis = Math.round(data.list[0].main.temp).toFixed(0);
+
+    document.getElementById("T").innerHTML = `${currentTempParis + " °C"}`
+
+    weatherIcon(data.list[0].weather[0].icon);
+
+    var conditions = data.list[0].weather[0].description;
+    $(".details").append("<p>" + conditions + "</p>");
+  });
+
+  function weatherIcon(icon) {
+    var timeOfDay = icon.substr(-1);
+    var condition = icon.slice(0, 2);
+    if (timeOfDay === "d") {
+      switch (condition) {
+        case '01':
+          icon = "pe-is-w-sun-1";
+          break;
+        case '02':
+          icon = "pe-is-w-partly-cloudy-1";
+          break;
+        case '03':
+          icon = "pe-is-w-mostly-cloudy-1";
+          break;
+        case '04':
+          icon = "pe-is-w-mostly-cloudy-2";
+          break;
+        case '09':
+          icon = "pe-is-w-rain-day";
+          break;
+        case '10':
+          icon = "pe-is-w-heavy-rain-day";
+          break;
+        case '11':
+          icon = "pe-is-w-thunderstorm";
+          break;
+        case '12':
+          icon = "pe-is-w-snow-day-2";
+          break;
+        case '13':
+          icon = "pe-is-w-snow-day-2";
+          break;
+        default:
+          icon = "pe-is-w-mostly-cloudy-2";
+      }
+    } else {
+      switch (condition) {
+        case '01':
+          icon = "pe-is-w-mostly-cloudy-2";
+          break;
+        case '02':
+          icon = "pe-is-w-partly-cloudy-3";
+          break;
+        case '03':
+          icon = "pe-is-w-fog-4";
+          break;
+        case '04':
+          icon = "pe-is-w-mostly-cloudy-2";
+          break;
+        case '09':
+          icon = "pe-is-w-hail-night-1";
+          break;
+        case '10':
+          icon = "pe-is-w-heavy-hail-night";
+          break;
+        case '11':
+          icon = "pe-is-w-mix-rainfall-2";
+          break;
+        case '12':
+          icon = "pe-is-w-snow-night-1";
+          break;
+        case '13':
+          icon = "pe-is-w-fog-4-f";
+          break;
+        default:
+          icon = "pe-is-w-mostly-cloudy-2";
+      }
+    }
+    document.getElementById("ciel").setAttribute("class", icon)
+  }
+</script>
+<!-- les graphs -->
+
+<script>
+  var no_chart = true
+  async function graph(x, y, n, c) {
+    //     if(no_chart){
+    // var options = {
+    //   chart: {
+    //     type: 'line',
+    //     height: 220,
+    //     width: 1368,
+    //     toolbar: {
+    //       show: false,
+    //     },
+    //     id: 'salesChart',
+
+    //   },
+    //   colors: [c],
+    //   fill: {
+
+    //     opacity: 1
+    //   },
+
+    //   series: [{
+    //     name: '',
+    //     data: y,
+
+
+    //   }],
+    //   stroke: {
+    //     curve: 'smooth'
+    //   },
+    //   xaxis: {
+    //     categories: x,
+    //     labels: {
+    //       style: {
+    //         colors: '#fff',
+    //         fontSize: '16px'
+    //       }
+
+    //     }
+    //   },
+
+    //   yaxis: {
+    //     show: true,
+
+    //     labels: {
+    //       style: {
+    //         colors: '#fff',
+    //         fontSize: '16px'
+    //       }
+
+    //     }
+    //   },
+
+
+
+    // }
+    //   no_chart=false
+    //   var chart = new ApexCharts(document.querySelector(n), options);
+    //   chart.render();
+
+    // }
+
+    //     else
+    //     {
+    //       // Update label
+    // ApexCharts.exec('salesChart', 'updateOptions', {
+    //     xaxis: {
+    //         labels: data.abscisse.puissance
+    //     }
+    // }, false, true)
+    // // Update values
+    // ApexCharts.exec('salesChart', 'updateSeries', [{
+    //     data: data.puissance.data
+    // }], true);
+
+    //     }
+    return 0;
+  }
+
+  const graphs = {
+    1: {
+      option: null
+    },
+    2: {
+      option: null
+    },
+    3: {
+      option: null
+    },
+    4: {
+      option: null
+    }
+  }
+  async function graph_update(num, color, ord, abs) {
+    var chart = new ApexCharts(document.querySelector("chart" + num), graphs[num].option);
+    chart.updateOptions({
+      xaxis: {
+        categories: 'year'
+      },
+      series: [{
+        data: ['trend']
+      }],
+    });
+
+  }
+
+
+  async function graphInit(num) {
+    var options = {
+      chart: {
+        height: 220,
+        width: 1368,
+        type: 'line',
+
+      },
+      id: 'chart' + num,
+      dataLabels: {
+        enabled: false
+      },
+      series: [],
+    }
+
+    graphs[num].option = options
+    var chart = new ApexCharts(
+      document.querySelector("#chart" + num),
+      options
+    );
+    chart.render();
+
+  }
+</script>
+
+<!-- date -->
+<script>
+
+  // START CLOCK SCRIPT
+
+  Number.prototype.pad = function (n) {
+    for (var r = this.toString(); r.length < n; r = 0 + r);
+    return r;
+  };
+
+  function updateClock() {
+    var now = new Date();
+    var sec = now.getSeconds(),
+      min = now.getMinutes(),
+      hou = now.getHours(),
+      mo = now.getMonth(),
+      dy = now.getDate(),
+      yr = now.getFullYear();
+    var months = ["Janvier", "Fevrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+    var tags = ["mon", "d", "y", "h", "m", "s"],
+      corr = [months[mo], dy, yr, hou.pad(2), min.pad(2), sec.pad(2)];
+    for (var i = 0; i < tags.length; i++)
+      document.getElementById(tags[i]).firstChild.nodeValue = corr[i];
+  }
+
+  function initClock() {
+    updateClock();
+    window.setInterval("updateClock()", 1);
+  }
+
+// END CLOCK SCRIPT
+
+</script>
+
+
+<script>
+  const ip = "192.168.179.241"
+
+  // permet de stocker l'intégralité d'une asquisiion de panneaux 
+  const cache = {
+    current: {
+      1: null,
+      2: null,
+      3: null,
+      4: null,
+    },
+    string1: {
+      courant: {
+        lastCourant: null,
+        actuelle: 0,
+        data: [],
+        timeData: []
+      },
+      tension: {
+        lastTension: null,
+        actuelle: 0,
+        data: [],
+        timeData: []
+      },
+      puissance: {
+        lastPuissance: null,
+        actuelle: 0,
+        data: [],
+        timeData: []
+      },
+      tensions: {
+        1: null,
+        2: null,
+        3: null,
+        4: null,
+        5: null,
+      },
+      tempsPanneaux: {
+        1: '',
+        2: '',
+        3: '',
+        4: '',
+        5: '',
+      }
+    },
+    string2: {
+      tensions: {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+      },
+      tempsPanneaux: {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+      }
+    },
+    string3: {
+      tensions: {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+      },
+      tempsPanneaux: {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+      }
+    },
+    string4: {
+      tensions: {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+      },
+      tempsPanneaux: {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+      }
+    }
+  }
+
+  const data = {
+    abscisse: {
+      courant: [],
+      tension: [],
+      puissance: []
+    },
+    courant: {
+      data: [],
+      timeData: []
+    },
+    tension: {
+      data: [],
+      timeData: []
+    },
+    puissance: {
+      data: [],
+      timeData: []
+    },
+    irradiance: {
+      data: [],
+      timeData: [],
+      max: 0,
+      min: 0,
+      timeMax: "",
+
+    },
+    panneaux: {
+      max: 0,
+      timeMax: "",
+      PanMax: "",
+      string1: {
+        courant: {
+          actuelle: 0,
+          data: [],
+          timeData: []
+        },
+        max: 0,
+        min: 0,
+        timeMax: "",
+        PanMax: "",
+        pan1: {
+          data: [],
+          timeData: [],
+        },
+        pan2: {
+          data: [],
+          timeData: [],
+        },
+        pan3: {
+          data: [],
+          timeData: [],
+        },
+        pan4: {
+          data: [],
+          timeData: [],
+        },
+        pan5: {
+          data: [],
+          timeData: [],
+        },
+      },
+      string2: {
+        courant: {
+          actuelle: 0,
+          data: [],
+          timeData: []
+        },
+        max: 0,
+        min: 0,
+        timeMax: "",
+        PanMax: "",
+        pan1: {
+          data: [],
+          timeData: [],
+        },
+        pan2: {
+          data: [],
+          timeData: [],
+        },
+        pan3: {
+          data: [],
+          timeData: [],
+        },
+        pan4: {
+          data: [],
+          timeData: [],
+        },
+        pan5: {
+          data: [],
+          timeData: [],
+        },
+      },
+      string3: {
+        courant: {
+          actuelle: 0,
+          data: [],
+          timeData: []
+        },
+        max: 0,
+        min: 0,
+        timeMax: "",
+        PanMax: "",
+        pan1: {
+          data: [],
+          timeData: [],
+        },
+        pan2: {
+          data: [],
+          timeData: [],
+        },
+        pan3: {
+          data: [],
+          timeData: [],
+        },
+        pan4: {
+          data: [],
+          timeData: [],
+        },
+        pan5: {
+          data: [],
+          timeData: [],
+        },
+      },
+      string4: {
+        courant: {
+          actuelle: 0,
+          data: [],
+          timeData: []
+        },
+        max: 0,
+        min: 0,
+        timeMax: "",
+        PanMax: "",
+        pan1: {
+          data: [],
+          timeData: [],
+        },
+        pan2: {
+          data: [],
+          timeData: [],
+        },
+        pan3: {
+          data: [],
+          timeData: [],
+        },
+        pan4: {
+          data: [],
+          timeData: [],
+        },
+        pan5: {
+          data: [],
+          timeData: [],
+        },
+      },
+    }
+  }
+
+  async function aquisitionIntervalle() {
+    refreshAt(00, 15, 00)
+    setInterval(() => {
+      getCSV()
+    }, 5000); // 300000 pour 15 minutes
+  }
+
+
+  async function getCSV() {
+    const jsonFile = new Promise((resolve, reject) => {
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.open('GET', `http://${ip}:5000/getCSV`, true);
+      xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+          resolve(xmlhttp.responseText)
+        else if (xmlhttp.readyState == 4 && xmlhttp.status == 0) {
+          resolve('CORS request did not succeed')
+        } else
+          console.log("Error loading page")
+      };
+      xmlhttp.send();
+    });
+    const result = await jsonFile.then((value) => {
+      return value
+    })
+    // traitement du csv recu
+    // console.log('result')
+    // console.log(result)
+    await result.split('\n').forEach(async ligne => {
+      const arg = ligne.split(',')
+      const time = arg[0]
+      const MsgId = arg[2]
+      switch (MsgId) {
+        case '31': {
+          let signeTemp = parseInt(arg[4])
+          let temp = parseInt(arg[6])
+          if (!data.temp.timeData.includes(time)) {
+            if (signeTemp == 1) {
+              temp = -temp
+            }
+
+            data.temp.timeData.push(time)
+            data.temp.data.push(temp)
+          }
+          break;
+        }
+
+        case '51': { // mesure de l'irradiance
+          let irradiancePfort = parseInt(arg[4])
+          let irradiancePfaible = parseInt(arg[6])
+          if (!data.irradiance.timeData.includes(time)) {
+            let irradiance = (irradiancePfort * 256 + irradiancePfaible) / 10
+            if (data.irradiance.max < irradiance) {
+              data.irradiance.max = irradiance
+              data.irradiance.timeMax = time
+            }
+            if (data.irradiance.min > irradiance) {
+              data.irradiance.min = irradiance
+            }
+            data.irradiance.timeData.push(time)
+            data.irradiance.data.push(irradiance)
+          }
+          break;
+        }
+
+
+        case '6': { // mesure des tensions des panneaux
+          const numString = parseInt(arg[4])
+          const numPan = parseInt(arg[6])
+          const tensionPanPfort = parseInt(arg[8])
+          const tensionPanPfaible = parseInt(arg[10])
+          const tension = (256 * tensionPanPfort + tensionPanPfaible) / 100
+
+
+          // si panneaux est le 5 alors mettre dans tension string
+          if (numString == 1 && numPan == 5 && !data.tension.timeData.includes(time)) {
+            data.tension.data.push(tension.toFixed(0))
+            data.tension.timeData.push(time)
+          }
+
+          // mise en cache des tensions et des temps par string
+          cache['string' + numString].tensions[numPan] = tension
+          cache['string' + numString].tempsPanneaux[numPan] = time
+          // parcour du cache
+          for (let s = 1; s < 5; s++) {
+            // variable qui va permettre de vérifier si le string est complet
+            let stringFinished = true
+            // check si toutes les tensions du string sont présentes 
+            for (let p = 1; p < 6; p++) {
+              if (cache['string' + s].tensions[p] == null) {
+                stringFinished = false
+              }
+            }
+
+            // traitement du string si complet
+            if (stringFinished) {
+              let previous = 0
+              for (let p = 1; p < 6; p++) {
+
+                cache['string' + s].tensions[p] = cache['string' + s].tensions[p] - previous
+                previous += cache['string' + s].tensions[p]
+
+                // sauvegarde si pas déjà compris das la base de données
+                if (!data.panneaux['string' + s]['pan' + p].timeData.includes(cache['string' + s].tempsPanneaux[p])) {
+                  // sauvegarde des données dans la base de données
+                  data.panneaux['string' + s]['pan' + p].data.push(cache['string' + s].tensions[p])
+                  data.panneaux['string' + s]['pan' + p].timeData.push(cache['string' + s].tempsPanneaux[p])
+                }
+                // remise à zero du cache
+                cache['string' + s].tensions[p] = null
+                cache['string' + s].tempsPanneaux[p] = ''
+              }
+
+            }
+          }
+
+          break
+        }
+        case '7': { // mesure des courants des panneaux
+          const numString = parseInt(arg[4])
+          const courantPfort = parseInt(arg[6])
+          const courantPfaible = parseInt(arg[8])
+
+          const courant = (256 * courantPfort + courantPfaible) / 1000
+
+          if (data.courant.timeData.includes(time)) break
+          cache.current[numString] = courant
+          if (cache.current[1] != null && cache.current[2] != null && cache.current[3] != null && cache.current[4] != null) {
+            let totalCurrent = 0
+            for (let i = 1; i < 5; i++) {
+              totalCurrent += cache.current[i]
+              cache.current[i] = null
+            }
+            data.courant.data.push(totalCurrent.toFixed(2))
+            data.courant.timeData.push(time)
+          }
+
+          break
+        }
+
+        default:
+          break;
+      }
+    })
+
+    // fin de conversion des données
+
+    // traitement des données, envoie graph
+    // traitment des données d'irradiance
+    await traitementIrradiance()
+
+    // traitement des données de tension
+    await traitementTensionString()
+    await genPower()
+
+    await traitementPuissance()
+
+    // await createAbsisses(data.courant.timeData, data.abscisse.courant)
+    // await createAbsisses(data.tension.timeData, data.abscisse.tension)
+    data.abscisse.puissance = await createAbsisses(data.puissance.timeData)
+    data.abscisse.courant = await createAbsisses(data.courant.timeData)
+    data.abscisse.tension = await createAbsisses(data.tension.timeData)
+    
+    const ord = [1, 2, 3, 4]
+    const abs = [1, 2, 3, 4]
+    // await graph(abs, ord, '#chart1', '#00ff2a')
+
+    // graph(x, y, n, c)
+    // graph(abs, ord, '#chart1', '#00ff2a');
+    // graph_update(1, '#00ff2a', data.puissance.data, data.abscisse.puissance)
+
+    // graph(abs, ord, '#chart2', '#00fffa');
+    // graph(abs, ord, '#chart3', '#f72727');
+
+    return
+  }
+
+
+  function refreshAt(hours, minutes, seconds) {
+    var now = new Date();
+    var then = new Date();
+
+    if (now.getHours() > hours ||
+      (now.getHours() == hours && now.getMinutes() > minutes) ||
+      now.getHours() == hours && now.getMinutes() == minutes && now.getSeconds() >= seconds) {
+      then.setDate(now.getDate() + 1);
+    }
+    then.setHours(hours);
+    then.setMinutes(minutes);
+    then.setSeconds(seconds);
+
+    var timeout = (then.getTime() - now.getTime());
+    setTimeout(function () { window.location.reload(true); }, timeout);
+  }
+
+  async function genPower() {
+    let index, heure
+    
+    heure = data.courant.timeData
+    //calcul de la puissance:
+    for (let i = 0; i < data.courant.timeData.length; i++) {
+      if (!data.puissance.timeData.includes(heure[i])) {
+        let power = (data.tension.data[i] * data.courant.data[i]).toFixed(0)
+        data.puissance.data.push(power)
+        data.puissance.timeData.push(heure[i])
+      }
+    }
+    console.log(data.puissance.data.length)
+
+
+// 
+/*
+    data.abscisse.puissance=data.abscisse.tension
+    for(let i=0;i<index;i++) {
+      let power = (data.tension.data[i] * data.courant.data[i]).toFixed(0)
+        data.puissance.data.push(power)
+       
+    }
+// 
+*/
+  }
+
+  async function createAbsisses(tabDataTime) { // permet de générer les abscisses
+    const tabAbs = []
+    tabDataTime.forEach(h => {
+      let heure = h.split(":")[0] + "h"
+      if (!tabAbs.includes(heure)) {
+        tabAbs.push(heure)
+      } else {
+        tabAbs.push("")
+      }
+    })
+    return tabAbs
+  }
+
+
+  async function traitementIrradiance() {
+    const dernierVal = data.irradiance.data[data.irradiance.data.length - 1]
+    const valMax = 1500
+    document.getElementById("irradianceGraph").setAttribute("stroke-dasharray", `${((dernierVal / valMax) * 100).toFixed(0)} ${(100 - ((dernierVal / valMax) * 100)).toFixed(0)}`)
+    document.getElementById("irradianceValue").innerHTML = `${((dernierVal / valMax) * 100).toFixed(1)}%`
+    document.getElementById("ValAct").innerHTML = `${dernierVal} W/m²`
+  }
+
+  async function traitementPuissance(){
+    const dernierVal = data.puissance.data[data.puissance.data.length - 1]
+    const valMax = 1600
+    document.getElementById("puissanceGraph").setAttribute("stroke-dasharray", `${((dernierVal / valMax) * 100).toFixed(0)} ${(100 - ((dernierVal / valMax) * 100)).toFixed(0)}`)
+    document.getElementById("PuissanceValue").innerHTML = `${((dernierVal / valMax) * 100).toFixed(1)}%`
+    document.getElementById("ValActPuissance").innerHTML = `${dernierVal} W`
+  }
+
+  async function traitementTensionString() {
+    return
+  }
+
+  function refreshAt(hours, minutes, seconds) {
+    var now = new Date(), then = new Date();
+    then.setHours(hours, minutes, seconds, 0);
+    if (then.getTime() < now.getTime()) {
+      then.setDate(now.getDate() + 1);
+    }
+
+    var timeout = (then.getTime() - now.getTime());
+    setTimeout(function () { window.location.reload(true); }, timeout);
+  }
+
+</script>
+
+
+<body class="body" onload="
+  refreshAt(0,1,0);
+  const ord=[1,2,3,4]
+  const abs=[1,2,3,4]
+  // graph(abs,ord,'#chart1','#00ff2a');
+  // graph(abs,ord,'#chart2','#00fffa');
+  // graph(abs,ord,'#chart3','#f72727');
+  
+    // graph_update(1, '#00ff2a', data.puissance.data, data.abscisse.puissance)
+
+  
+  initClock();
+  aquisitionIntervalle();
+  ">
+
+
+  <script>
+
+
+
+
+
+  </script>
+
+
+  <div class="barre_gauche">
+    <img class="logo" src="images/IUT-CACHAN-v-b.png" />
+
+    <div id="timedate">
+
+      <a id="d">1</a>
+      <a id="mon">January</a>
+      <a id="y">0</a><br />
+      <a id="h">12</a> :
+      <a id="m">00</a> :
+      <a id="s">00</a><br />
+      <a id="T"></a>
+      <a id="ciel"></a>
+
+
+    </div>
+
+    <div class="svg-item">
+      <svg width="100%" height="100%" viewBox="0 0 40 40" class="donut">
+        <circle class="donut-hole" cx="20" cy="20" r="15.91549430918954" fill="transparent"></circle>
+        <circle class="donut-ring" cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke-width="3.5"></circle>
+        <circle class="donut-segment" cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke-width="0.3"
+          stroke="#fff" stroke-dasharray="0 0" stroke-dashoffset="25"></circle>
+        <circle id="irradianceGraph" class="donut-segment" cx="20" cy="20" r="15.91549430918954" fill="transparent"
+          stroke-width="1.5" stroke="#c300ff" stroke-dasharray="0 100" stroke-dashoffset="25"></circle>
+
+        <g class="donut-text">
+
+          <text y="50%" transform="translate(0, 2)">
+            <tspan id="irradianceValue" x="50%" text-anchor="middle" class="donut-percent">0%</tspan>
+          </text>
+        </g>
+      </svg>
+
+    </div>
+
+
+    <div id="ValAct" class="irraTxt">0 W/m²</div>
+    <div class="irraTxt" id="irraLegend">
+      Irradiance
+    </div>
+
+    <div class="svg-item">
+      <svg width="100%" height="100%" viewBox="0 0 40 40" class="donut">
+        <circle class="donut-hole" cx="20" cy="20" r="15.91549430918954" fill="transparent"></circle>
+        <circle class="donut-ring" cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke-width="3.5"></circle>
+        <circle class="donut-segment" cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke-width="0.3"
+          stroke="#fff" stroke-dasharray="0 0" stroke-dashoffset="25"></circle>
+        <circle id="puissanceGraph" class="donut-segment" cx="20" cy="20" r="15.91549430918954" fill="transparent"
+          stroke-width="1.5" stroke="#00fffa" stroke-dasharray="0 100" stroke-dashoffset="25"></circle>
+
+        <g class="donut-text">
+
+          <text y="50%" transform="translate(0, 2)">
+            <tspan id="PuissanceValue" x="50%" text-anchor="middle" class="donut-percent">0%</tspan>
+          </text>
+        </g>
+      </svg>
+
+    </div>
+
+
+    <div id="ValActPuissance" class="irraTxt">0 W</div>
+    <div class="irraTxt" id="puissanceLegend">
+      Puissance
+    </div>
+
+
+
+
+  </div>
+
+  <section class='section'>
+    <div class='masthead-image' id='master-container'>
+      <div class='content center'>
+        <h1 id='master'>
+          <div id="titre">Projet Laos, Monitoring :</div>
+          <div id='master-container-scroller'>
+            <div class='master-container-scroller_item'>
+              <a class='cta-link' href='#' style="color:#00fffa">Puissance</a>
+            </div>
+            <div class='master-container-scroller_item'>
+              <a class='cta-link' href='#' style="color: #04e762">Courant</a>
+            </div>
+            <div class='master-container-scroller_item'>
+              <a class='cta-link' href='#' style="color: #ffe000">Tension</a>
+            </div>
+            <div class='master-container-scroller_item'>
+              <a class='cta-link' href='#' style="color: #00fffa">Puissance</a>
+            </div>
+            <div class='master-container-scroller_item'>
+              <a class='cta-link' href='#' style="color: #04e762">Courant</a>
+            </div>
+            <div class='master-container-scroller_item'>
+              <a class='cta-link' href='#' style="color: #ffe000">Tension</a>
+            </div>
+            <div class='master-container-scroller_item'>
+              <a class='cta-link' href='#' style="color:#00fffa">Puissance</a>
+            </div>
+            <div class='master-container-scroller_item'>
+              <a class='cta-link' href='#' style="color: #04e762">Courant</a>
+            </div>
+            <div class='master-container-scroller_item'>
+              <a class='cta-link' href='#' style="color: #ffe000">Tension</a>
+            </div>
+            <div class='master-container-scroller_item'>
+              <a class='cta-link' href='#' style="color:#00fffa">Puissance</a>
+            </div>
+          </div>
+
+        </h1>
+      </div>
+    </div>
+  </section>
+
+
+  <div id="chart1" class="chart"></div>
+  <div id="chart2" class="chart"></div>
+  <div id="chart3" class="chart"></div>
+  <div class="T"></div>
+  <div class="ciel"></div>
+ 
+</body>
+
+<script>
+  const ord=[1,2,3]
+  const abs=[1,2,3]
+// Chart options
+const options1 = {
+      chart: {
+        type: 'line',
+        height: 240,
+        width: 1368,
+        toolbar: {
+          show: false,
+        },
+        id: 'salesChart',
+
+      },
+     
+      fill: {
+
+        opacity: 1
+      },
+
+      series: [{
+        name: '',
+        data: ord,
+
+
+      }],
+      stroke: {
+        curve: 'smooth'
+      },
+      xaxis: {
+        categories: abs,
+        labels: {
+          style: {
+            colors: '#fff',
+            fontSize: '16px'
+          }
+
+        }
+      },
+
+      yaxis: {
+        show: true,
+
+        labels: {
+          style: {
+            colors: '#fff',
+            fontSize: '16px'
+          }
+
+        }
+      },
+
+
+
+    }
+
+    const options2 = {
+      chart: {
+        type: 'line',
+        height: 240,
+        width: 1368,
+        toolbar: {
+          show: false,
+        },
+        id: 'salesChart',
+
+      },
+     
+      fill: {
+
+        opacity: 1
+      },
+
+      series: [{
+        name: '',
+        data: ord,
+
+
+      }],
+      stroke: {
+        curve: 'smooth'
+      },
+      xaxis: {
+        categories: abs,
+        labels: {
+          style: {
+            colors: '#fff',
+            fontSize: '16px'
+          }
+
+        }
+      },
+
+      yaxis: {
+        show: true,
+
+        labels: {
+          style: {
+            colors: '#fff',
+            fontSize: '16px'
+          }
+
+        }
+      },
+
+
+
+    }
+
+    const options3 = {
+      chart: {
+        type: 'line',
+        height: 240,
+        width: 1368,
+        toolbar: {
+          show: false,
+        },
+        id: 'salesChart',
+
+      },
+     
+      fill: {
+
+        opacity: 1
+      },
+
+      series: [{
+        name: '',
+        data: ord,
+
+
+      }],
+      stroke: {
+        curve: 'smooth'
+      },
+      xaxis: {
+        categories: abs,
+        labels: {
+          style: {
+            colors: '#fff',
+            fontSize: '16px'
+          }
+
+        }
+      },
+
+      yaxis: {
+        show: true,
+
+        labels: {
+          style: {
+            colors: '#fff',
+            fontSize: '16px'
+          }
+
+        }
+      },
+
+
+
+    }
+
+// Init chart
+const chart1 = new ApexCharts(document.querySelector("#chart1"), options1);
+const chart2 = new ApexCharts(document.querySelector("#chart2"), options2);
+const chart3 = new ApexCharts(document.querySelector("#chart3"), options3);
+
+
+// Render chart
+chart1.render();
+chart2.render();
+chart3.render();
+
+// Event example
+setInterval(() => {
+ 
+  chart1.resetSeries(true,true)
+  
+  
+  chart1.updateOptions({
+    series: [{
+        name: '',
+        data: data.tension.data,
+        
+      }],
+      xaxis: {
+        categories: data.abscisse.tension},
+    colors: ["#ffe000"],
+  })
+
+  chart2.resetSeries(true,true)
+  
+  
+  chart2.updateOptions({
+    series: [{
+        name: '',
+        data: data.courant.data
+        
+      }],
+      xaxis: {
+        categories: data.abscisse.courant},
+    colors: ["#04e762"],
+  })
+
+  chart3.resetSeries(true,true)
+  
+  
+  chart3.updateOptions({
+    series: [{
+        name: '',
+        data: data.puissance.data,
+        
+      }],
+      xaxis: {
+        categories: data.abscisse.puissance},
+    colors: ["#00fffa"],
+  })
+
+  
+
+}, 8000);
+
+
+
+
+</script>
+</html>

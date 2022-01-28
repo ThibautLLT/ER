@@ -1,0 +1,64 @@
+@keyframes donut-chart-fill {
+    to { stroke-dasharray: 0 100; }
+  }
+
+  
+  .donut-ring {
+    stroke: #ebebeb00;
+  }
+  
+  .donut-segment {
+    animation: donut-chart-fill 1s reverse ease-in;
+    transform-origin: center;
+    
+  }
+  
+  .donut-text {
+    font: small-caps lighter 43px/150% "Segoe UI", "Frutiger", "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  font-style: normal;
+  font-variant-caps: small-caps;
+  font-weight: lighter;
+  font-stretch: normal;
+  font-size: 18px;
+  line-height: 150%;
+  font-family: "Segoe UI", "Frutiger", "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size-adjust: none;
+  font-kerning: auto;
+  font-optical-sizing: auto;
+  font-variant-alternates: normal;
+  font-variant-east-asian: normal;
+  font-variant-ligatures: normal;
+  font-variant-numeric: normal;
+  font-variant-position: normal;
+  font-language-override: normal;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+    fill: #63dcdc;
+
+  }
+  
+  .donut-label {
+    font-size: 0.28em;
+    font-weight: 700;
+    line-height: 1;
+    fill: #000;
+    transform: translateY(0.25em);    
+  }
+  
+  .donut-percent {
+    font-size: 0.5em;
+    fill: #feffff;
+    line-height: 1;
+    transform: translateY(0.5em);
+  }
+  .svg-item{
+      color: rgba(255, 255, 255, 0);
+      margin:auto;
+     
+      width: 200px;
+      height: 200px;
+      font-size: 16px;
+      
+      margin-top:20px;
+  }
+  

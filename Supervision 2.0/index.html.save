@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="./donut.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  <title>XHTML</title>
+</head>
+
+
+
+<!-- les graphs -->
+
+<script>
+  var abs = [10, 8, 5, 4, 7, 6, 12, 4, 2]
+  var ord = [1, 12, 5, 8, 13, 4, 9, 7, 2]
+  async function graph(x, y, n) {
+
+    var options = {
+
+      chart: {
+        type: 'line',
+        height: 220,
+        width: 1368,
+        toolbar: {
+          show: false,
+        },
+
+      },
+      colors: ['#63dcdc'],
+      fill: {
+
+        opacity: 1
+      },
+
+      series: [{
+        name: '',
+        data: y,
+
+
+      }],
+      stroke: {
+        curve: 'smooth'
+      },
+      xaxis: {
+        categories: x,
+        labels: {
+          style: {
+            colors: '#fff',
+            fontSize: '16px'
+          }
+
+        }
+      },
+
+      yaxis: {
+        show: true,
+
+        labels: {
+          style: {
+            colors: '#fff',
+            fontSize: '16px'
+          }
+
+        }
+      },
+
+
+
+    }
+
+
+    var chart = new ApexCharts(document.querySelector(n), options);
+    chart.render();
+    return 0;
+  }
+</script>
+
+<!-- date -->
+<script>
+
+  // START CLOCK SCRIPT
+
+  Number.prototype.pad = function (n) {
+    for (var r = this.toString(); r.length < n; r = 0 + r);
+    return r;
+  };
+
+  function updateClock() {
+    var now = new Date();
+    var sec = now.getSeconds(),
+      min = now.getMinutes(),
+      hou = now.getHours(),
+      mo = now.getMonth(),
+      dy = now.getDate(),
+      yr = now.getFullYear();
+    var months = ["Janvier", "Fevrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+    var tags = ["mon", "d", "y", "h", "m", "s"],
+      corr = [months[mo], dy, yr, hou.pad(2), min.pad(2), sec.pad(2)];
+    for (var i = 0; i < tags.length; i++)
+      document.getElementById(tags[i]).firstChild.nodeValue = corr[i];
+  }
+
+  function initClock() {
+    updateClock();
+    window.setInterval("updateClock()", 1);
+  }
+
+// END CLOCK SCRIPT
+
+</script>
+
+
+<script>
+  const ip = "192.168.179.241"
+  const date = new Date()
+  let controleDate = `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`
+
+  // permet de stocker l'intégralité d'une asquisiion de panneaux 
+  const cache = {
+    string1: {
+      tensions: {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+      },
+      tempsPanneaux: {
+        1: '',
+        2: '',
+        3: '',
+        4: '',
+        5: '',
+      }
+    },
+    string2: {
+      tensions: {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+      },
+      tempsPanneaux: {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+      }
+    },
+    string3: {
+      tensions: {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+      },
+      tempsPanneaux: {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+      }
+    },
+    string4: {
+      tensions: {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+      },
+      tempsPanneaux: {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+      }
+    }
+  }
+
+  const data = {
+    irradiance: {
+      data: [],
+      timeData: [],
+      max: 0,
+      min: 0,
+      timeMax: "",
+
+    },
+    panneaux: {
+      max: 0,
+      timeMax: "",
+      PanMax: "",
+      string1: {
+        max: 0,
+        min: 0,
+        timeMax: "",
+        PanMax: "",
+        pan1: {
+          data: [],
+          timeData: [],
+        },
+        pan2: {
+          data: [],
+          timeData: [],
+        },
+        pan3: {
+          data: [],
+          timeData: [],
+        },
+        pan4: {
+          data: [],
+          timeData: [],
+        },
+        pan5: {
+          data: [],
+          timeData: [],
+        },
+      },
+      string2: {
+        max: 0,
+        min: 0,
+        timeMax: "",
+        PanMax: "",
+        pan1: {
+          data: [],
+          timeData: [],
+        },
+        pan2: {
+          data: [],
+          timeData: [],
+        },
+        pan3: {
+          data: [],
+          timeData: [],
+        },
+        pan4: {
+          data: [],
+          timeData: [],
+        },
+        pan5: {
+          data: [],
+          timeData: [],
+        },
+      },
+      string3: {
+        max: 0,
+        min: 0,
+        timeMax: "",
+        PanMax: "",
+        pan1: {
+          data: [],
+          timeData: [],
+        },
+        pan2: {
+          data: [],
+          timeData: [],
+        },
+        pan3: {
+          data: [],
+          timeData: [],
+        },
+        pan4: {
+          data: [],
+          timeData: [],
+        },
+        pan5: {
+          data: [],
+          timeData: [],
+        },
+      },
+      string4: {
+        max: 0,
+        min: 0,
+        timeMax: "",
+        PanMax: "",
+        pan1: {
+          data: [],
+          timeData: [],
+        },
+        pan2: {
+          data: [],
+          timeData: [],
+        },
+        pan3: {
+          data: [],
+          timeData: [],
+        },
+        pan4: {
+          data: [],
+          timeData: [],
+        },
+        pan5: {
+          data: [],
+          timeData: [],
+        },
+      },
+    }
+  }
+
+  async function aquisitionIntervalle() {
+    setInterval(() => {
+      getCSV()
+      const current = new Date()
+      let currentControleDate = `${current.getDate()}-${current.getMonth() + 1}-${current.getFullYear()}`
+      
+      if (controleDate != currentControleDate) {
+        setTimeout(() => {
+          window.location.reload(1)
+        }, 1000);
+      }
+    }, 5000); // 300000 pour 15 minutes
+  }
+  
+
+  async function getCSV() {
+    const jsonFile = new Promise((resolve, reject) => {
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.open('GET', `http://${ip}:5000/getCSV`, true);
+      xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+          resolve(xmlhttp.responseText)
+        else if (xmlhttp.readyState == 4 && xmlhttp.status == 0) {
+          resolve('CORS request did not succeed')
+        } else
+          console.log("Error loading page")
+      };
+      xmlhttp.send();
+    });
+    const result = await jsonFile.then((value) => {
+      return value
+    })
+    // traitement du csv recu
+    // console.log('result')
+    // console.log(result)
+    await result.split('\n').forEach(async ligne => {
+      const arg = ligne.split(',')
+      const time = arg[0]
+      const MsgId = arg[2]
+      switch (MsgId) {
+        case '31': {
+          let signeTemp = parseInt(arg[4])
+          let temp = parseInt(arg[6])
+          if (!data.temp.timeData.includes(time)) {
+            if (signeTemp == 1) {
+              temp = -temp
+            }
+
+            data.temp.timeData.push(time)
+            data.temp.data.push(temp)
+          }
+          break;
+        }
+
+        case '51': { // mesure de l'irradiance
+          let irradiancePfort = parseInt(arg[4])
+          let irradiancePfaible = parseInt(arg[6])
+          if (!data.irradiance.timeData.includes(time)) {
+            let irradiance = (irradiancePfort * 256 + irradiancePfaible) / 10
+            if (data.irradiance.max < irradiance) {
+              data.irradiance.max = irradiance
+              data.irradiance.timeMax = time
+            }
+            if (data.irradiance.min > irradiance) {
+              data.irradiance.min = irradiance
+            }
+            data.irradiance.timeData.push(time)
+            data.irradiance.data.push(irradiance)
+          }
+          break;
+        }
+
+
+        case '6': { // mesure des tensions des panneaux
+          const numString = parseInt(arg[4])
+          const numPan = parseInt(arg[6])
+          const tensionPanPfort = parseInt(arg[8])
+          const tensionPanPfaible = parseInt(arg[10])
+          const tension = (256 * tensionPanPfort + tensionPanPfaible) / 100
+
+          // mise en cache des tensions et des temps par string
+          cache['string' + numString].tensions[numPan] = tension
+          cache['string' + numString].tempsPanneaux[numPan] = time
+
+          // parcour du cache
+          for (let s = 1; s < 5; s++) {
+            // variable qui va permettre de vérifier si le string est complet
+            let stringFinished = true
+            // check si toutes les tensions du string sont présentes 
+            for (let p = 1; p < 6; p++) {
+              if (cache['string' + s].tensions[p] == 0) stringFinished = false
+            }
+
+            // traitement du string si complet 
+            if (stringFinished) {
+              let previous = 0
+              for (let p = 1; p < 6; p++) {
+
+                cache['string' + s].tensions[p] = cache['string' + s].tensions[p] - previous
+                previous += cache['string' + s].tensions[p]
+
+                // sauvegarde si pas déjà compris das la base de données
+                if (!data.panneaux['string' + s]['pan' + p].timeData.includes(cache['string' + s].tempsPanneaux[p])) {
+                  // sauvegarde des données dans la base de données
+                  data.panneaux['string' + s]['pan' + p].data.push(cache['string' + s].tensions[p])
+                  data.panneaux['string' + s]['pan' + p].timeData.push(cache['string' + s].tempsPanneaux[p])
+                }
+                // remise à zero du cache
+                cache['string' + s].tensions[p] = 0
+                cache['string' + s].tempsPanneaux[p] = ''
+              }
+            }
+          }
+
+          break
+        }
+        default:
+          break;
+      }
+    })
+
+    // fin de conversion des données
+
+    // traitement des données, envoie graph
+    // traitment des données d'irradiance
+    await traitementIrradiance()
+
+    // traitement des données de tension
+    await traitementTensionString()
+
+    return
+  }
+
+
+  async function traitementIrradiance() {
+    console.log(document.getElementById("irradianceGraph"))
+    console.log(data)
+    const dernierVal = data.irradiance.data[data.irradiance.data.length-1]
+    const valMax = 1500
+    document.getElementById("irradianceGraph").setAttribute("stroke-dasharray", `${((dernierVal/valMax)*100).toFixed(0)} ${(100-((dernierVal/valMax)*100)).toFixed(0)}`)
+    document.getElementById("irradianceValue").innerHTML = `${((dernierVal/valMax)*100).toFixed(1)}%`
+    document.getElementById("ValAct").innerHTML = `${dernierVal} W/m²`
+   
+  }
+
+  async function traitementTensionString() {
+    return
+  }
+
+</script>
+
+
+<body onload="
+  graph(abs,ord,'#chart1');
+  graph(ord,abs,'#chart2');
+  graph(abs,ord,'#chart3');
+  
+  initClock();
+  aquisitionIntervalle();
+  ">
+
+
+
+
+
+  <div class="barre_gauche">
+    <img class="logo" src="images/IUT-CACHAN-v-b.png" />
+
+    <div id="timedate">
+
+      <a id="d">1</a>
+      <a id="mon">January</a>
+      <a id="y">0</a><br />
+      <a id="h">12</a> :
+      <a id="m">00</a> :
+      <a id="s">00</a>
+
+    </div>
+
+    <div class="svg-item">
+      <svg width="100%" height="100%" viewBox="0 0 40 40" class="donut">
+        <circle class="donut-hole" cx="20" cy="20" r="15.91549430918954" fill="transparent"></circle>
+        <circle class="donut-ring" cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke-width="3.5"></circle>
+        <circle class="donut-segment" cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke-width="0.3" stroke="#fff" stroke-dasharray="0 0" stroke-dashoffset="25"></circle>
+        <circle id= "irradianceGraph" class="donut-segment" cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke-width="2" stroke="#63dcdc" stroke-dasharray="0 100" stroke-dashoffset="25"></circle>
+        
+        <g class="donut-text">
+    
+          <text y="50%" transform="translate(0, 2)">
+            <tspan id="irradianceValue" x="50%" text-anchor="middle" class="donut-percent">0%</tspan>      
+          </text>
+        </g>
+      </svg>
+    
+    </div>
+
+    
+    <div id="ValAct" class="irraTxt">0 W/m²</div>
+    <div class="irraTxt" id="irraLegend">
+      Irradiance
+    </div>
+    
+    <div class="svg-item">
+      <svg width="100%" height="100%" viewBox="0 0 40 40" class="donut">
+        <circle class="donut-hole" cx="20" cy="20" r="15.91549430918954" fill="transparent"></circle>
+        <circle class="donut-ring" cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke-width="3.5"></circle>
+        <circle class="donut-segment" cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke-width="0.3" stroke="#fff" stroke-dasharray="0 0" stroke-dashoffset="25"></circle>
+        <circle id= "puissanceGraph" class="donut-segment" cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke-width="2" stroke="#63dcdc" stroke-dasharray="0 100" stroke-dashoffset="25"></circle>
+        
+        <g class="donut-text">
+    
+          <text y="50%" transform="translate(0, 2)">
+            <tspan id="PuissanceValue" x="50%" text-anchor="middle" class="donut-percent">0%</tspan>      
+          </text>
+        </g>
+      </svg>
+    
+    </div>
+
+    
+    <div id="ValAct" class="irraTxt">0 W</div>
+    <div class="irraTxt" id="irraLegend">
+      Puissance
+    </div>
+
+    
+    
+
+  </div>
+  
+  <div id="Menu" class="chart description"><div class="title">Projet Laos</div></div>
+  <div id="chart1" class="chart"></div>
+  <div id="chart2" class="chart"></div>
+  <div id="chart3" class="chart"></div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,222 @@
+html, body {
+	height: 1080px;
+    width:1920px;
+	margin: 0;
+    padding-top: 0px;
+	padding: 0;
+  
+}
+
+.body{
+  
+  
+  width: 1920px;
+  height: 1080px;
+  background: #19191b;
+}
+
+.logo{
+    width: 300px; 
+    margin-top: 21px;
+    
+}
+
+.barre_gauche {
+	float: left;
+  position:relative;
+	width: 400px;
+  height: 1080px;
+ 
+  border-right: 1px solid #46464c;
+  background-color: #29292f;
+  z-index :100;
+  text-align: center;
+}
+
+#d,#mon,#y,#h,#m,#s{
+  color:#fff;
+}
+
+
+
+
+@keyframes AnimateBG { 
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+
+
+#timedate {
+  font: small-caps lighter 43px/150% "Segoe UI", "Frutiger", "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  text-align:left;
+  width: 100%;
+  margin-left: 35px ;
+  color:rgb(255, 255, 255);
+  border-left: 1px solid #fffcfc;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+
+ 
+
+
+.chart{
+
+  overflow: hidden;
+ 
+  opacity :0.8;
+  border: 1px solid #46464c;
+  background-color: #29292f;
+  margin:0px;
+  padding:0px;
+  width: 1450px;;
+  float:right;
+  margin-right:45px;
+  margin-top:45px;
+
+}
+
+
+.irraTxt
+{
+  color:white;
+  font: small-caps lighter 43px/150% "Segoe UI", "Frutiger", "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  font-style: normal;
+  font-variant-caps: small-caps;
+  font-weight: lighter;
+  font-stretch: normal;
+  font-size: 35px;
+  line-height: 150%;
+  font-family: "Segoe UI", "Frutiger", "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size-adjust: none;
+  font-kerning: auto;
+  font-optical-sizing: auto;
+  font-variant-alternates: normal;
+  font-variant-east-asian: normal;
+  font-variant-ligatures: normal;
+  font-variant-numeric: normal;
+  font-variant-position: normal;
+  font-language-override: normal;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  margin-bottom: 60px;
+}
+
+#ValAct {
+  position: relative;
+  margin-top: -70px;
+  font-size: 23px;
+  line-height: 150%;
+  font-family: "Segoe UI", "Frutiger", "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size-adjust: none;
+  font-kerning: auto;
+  font-optical-sizing: auto;
+  font-variant-alternates: normal;
+  font-variant-east-asian: normal;
+  font-variant-ligatures: normal;
+  font-variant-numeric: normal;
+  font-variant-position: normal;
+  font-language-override: normal;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  margin-bottom: 0px;
+}
+#ValActPuissance {
+  position: relative;
+  margin-top: -80px;
+  font-size: 23px;
+  line-height: 150%;
+  font-family: "Segoe UI", "Frutiger", "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size-adjust: none;
+  font-kerning: auto;
+  font-optical-sizing: auto;
+  font-variant-alternates: normal;
+  font-variant-east-asian: normal;
+  font-variant-ligatures: normal;
+  font-variant-numeric: normal;
+  font-variant-position: normal;
+  font-language-override: normal;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  margin-bottom: 0px;
+}
+
+
+
+#irraLegend{
+  margin-top: 30px;
+  
+}
+#puissanceLegend{
+  margin-top: 30px;
+  
+  }
+
+#Menu{
+  text-align: center;
+  padding-top: 40px;
+  width: 1450px;
+  height: 150px;
+
+  
+}
+
+.title{
+  font-size: 70px;
+  line-height: 150%;
+  font:  small-caps lighter 70px/150% "Segoe UI", "Frutiger", "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size-adjust: none;
+  font-kerning: auto;
+  font-optical-sizing: auto;
+  font-variant-alternates: normal;
+  font-variant-east-asian: normal;
+  font-variant-ligatures: normal;
+  font-variant-numeric: normal;
+  font-variant-position: normal;
+  font-language-override: normal;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  color: rgba(255, 255, 255, 0);
+  
+}
+
+.description{
+  background-color: #fff;
+  
+}
+
+
+
+
+
+
+#T{
+ 
+  color: #fff;
+}
+
+
+
+#ciel{
+  position: relative;
+  color: #fff;
+  width:75px;
+  height:100px;
+  float:right;
+  margin-right:60px;
+  margin-top: 15px;
+
+  
+}
+
+
+
+.container {
+  margin: 70px auto;
+  overflow: hidden;
+  width: 80%;
+  text-align: center;
+}
